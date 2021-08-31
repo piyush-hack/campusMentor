@@ -15,7 +15,7 @@ hamburger.addEventListener('click', () => {
   }
 
 
-  $("#nav_ul").toggle();
+  // $("#nav_ul").toggle();
   hamburger.classList.toggle('active');
   mobile_menu.classList.toggle('active');
 });

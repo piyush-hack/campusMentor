@@ -1,3 +1,35 @@
+.container{
+    background-color: #071639 ;
+    min-width:100vw;
+    min-height:100vh;
+    padding-top:100px;
+    
+}
+.content{
+    color : white;
+    margin:auto;
+    width : 90%;
+
+    
+}
+.col1{
+    max-width: 300px;
+    margin-right: 50px;
+}
+#blogging{
+   
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+}
+.follow_btn{
+    min-width: 200px;
+}
+
+
 .text-light {
     --bs-text-opacity: 1;
     color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;

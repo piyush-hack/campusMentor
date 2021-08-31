@@ -5,94 +5,186 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="static/css/blog.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="static/css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/front_page.css" />
     <!-- Bootstrap CSS -->
-    
-   
-    
+
+
+
     <title>Blog 1</title>
-    
+
 </head>
 
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            <h3><b>
-                    Chetan Bhagat
-                </b>
-            </h3>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <div class="text-secondary">16k Followers</div>
-                            <span class="sr-only">(current)</span>
+    <section id="header" class="nav">
+        <div class="header">
+            <div class="nav-bar">
+                <div class="brand">
+                    <a href="#hero">
+                        <h1><span>C</span>HETAN <span>B</span>HAGAT</h1>
                     </a>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-light">Follow</button>
-                </li>
+                </div>
 
-                <li class="nav-item">
-                    <button  type="button" class="btn btn-light btn-circle btn-md"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Subscribe to get an Email whenever Chetan Bhagat publishes a Blog">
+                <div class="nav-list">
+                    <div class="hamburger">
+                        <div class="bar"></div>
+                    </div>
+                    <ul id="nav_ul">
+                        <li><a href="#hero" data-after="Home">Home</a></li>
+                        <li><a href="#services" data-after="Service">Services</a></li>
+                        <li><a href="#projects" data-after="Projects">Projects</a></li>
+                        <li><a href="#about" data-after="About">About</a></li>
+                        <li><a href="#contact" data-after="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <p class="fd_content con2" style="position: fixed" id="center_btn">
+    </p>
+
+    <div class="container">
+        <div class="row content">
+            <div class="col-sm-3">
+                <div id="blogging" class="d-flex flex-column"><a class="nav-link" href="blog2.html">
+                        <div class="text-light">16k Followers</div>
+                        <span class="sr-only">(current)</span>
+                    </a>
+
+                    <br>
+
+                    <button type="button" class="btn btn-outline-light follow_btn">Follow</button>
+
+                    <br><br>
+
+                    <button type="button" class="btn btn-light btn-circle btn-md" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        title="Subscribe to get an Email whenever Chetan Bhagat publishes a Blog">
                         <i class="fa fa-envelope"></i>
                     </button>
-                    
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        More
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Mute this Author</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Block this Author</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Report this Author</a>
-                    </div>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                
-            </form>
+                </div>
+
+
+
+
+            </div>
+            <div class="col-sm-8">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+
+
+
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+
+
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+
+
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis, quaerat odit? Esse nemo odit quo facere. Nemo harum tempora eligendi,
+                ad minus ea, in rem reiciendis beatae dolorem veniam repudiandae.
+            </div>
         </div>
-    </nav>
-    <div class="grid" style="--bs-columns: 12;">
-        <div class="g-col-6">6 of 12</div>
-        <div class="g-col-4">4 of 12</div>
-        <div class="g-col-2">2 of 12</div>
-      </div>
+    </div>
+
 
 
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    
+
+    <script src="static/js/tooglenav.js"></script>
+
+    <script src="static/js/header.js"></script>
+
+    <script>
+        if (screen.width < 500) {
+            document.getElementById("blogging").setAttribute("class", "d-flex flex-row")
+            document.getElementById("blogging").style.position = "relative";
+
+        }
+       
+
+    </script>
+
 </body>
 
 </html>
