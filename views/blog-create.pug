@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Blog page</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+    <title>Blog</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="../static/css/code.css">
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+
+    <link rel="stylesheet" href="../static/css/blog-create.css">
+
+</head>
+
+<body style="padding:10vw">
+    <h1>Create your blog</h1>
+    <br><br>
+    <form method="POST" action="/blog/Add" id="my_form" name="Form">
+        <label class="h3">Image Referring to your blog : </label>
+        <br>
+        <input type="text" id="coverImage" class="form-control" name="coverImage" required placeholder="ex : https://miro.medium.com/max/4096/1*Y1hq9sHXG26Fyhys81z8rg.png" />
+        <br>
+        <label class="h3">Topic :</label>
+        <input type="text" id="title" name="title" class="form-control" placeholder="ex : Learn php " required />
+        <br>
+        <label class="h3">Sub Heading :</label>
+        <input type="text" id="subheading" name="subheading" class="form-control" placeholder="ex : php in one block " required />
+        <br>
+        <label class="h3">Tags : </label>
+        <input type="text" id="tags" name="tags" value="" data-role="tagsinput" placeholder="html,input,tag" required />
+        <br>
+        <label class="h3">Theory</label>
+        <br>
+        <textarea name="contentDetails" id="contentDetails" rows="40" cols="80">
+        </textarea>
+        <br><br>
+
+
+        <h3><button type="button" class="btn btn-outline-success" onclick="showsub()">ENABLE SUBMIT BTN</button></h3>
+        <br>
+        <div id="my-theory" name="body"></div>
+
+        <br>
+        <button id="submit" class="btn btn-primary btn-lg btn-block" type="submit" style="display: none;" name="submit" >Submit Blog</button>
+    </form>
+
+    <script src="../static/js/blog-create.js"></script>
+    <script src="../static/js/saveblog.js"></script>
+
+    <script>
+        
+
+    </script>
+
+
+
+
+</body>
+
+</html>

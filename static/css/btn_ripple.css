@@ -1,0 +1,31 @@
+
+:root{
+    --y : 0px;
+    --x : 0px;
+}
+.btn{
+    overflow: hidden;
+}
+
+.btn span{
+    position: relative;
+    z-index: 1;
+    color: rgb(44, 44, 48);
+}
+.ripple_btn::before{
+    content : "";
+    position : absolute;
+    top : var(--y);
+    left : var(--x);
+    transform : translate(-50%, -50%);
+    width : 20px;
+    height : 20px;
+    border-radius : 50%;
+    background : #f74bee;
+    transition : width 0.5s, height 0.5s;
+}
+
+.ripple_btn:hover::before{
+    width : 500px;
+    height : 500px;
+}
