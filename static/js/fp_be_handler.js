@@ -29,9 +29,9 @@ function mycard(cardData) {
       <div class="card" style="width: 18rem">
           <div class="card-body">
             <h2 class="card-no h2">${parseInt(x) + 1}</h2>
-            <h3 class="card-title h3">${cardData["data"][x]["title"].slice(0,10)}</h3>
+            <h3 class="card-title h3">${cardData["data"][x]["title"]}</h3>
             <p class="card-text">
-               ${cardData["data"][x]["subheading"].slice(0,20)}
+               ${cardData["data"][x]["subheading"]}
                <br>
                by ${cardData["data"][x]["username"]}
                <div class = "a_tag">
