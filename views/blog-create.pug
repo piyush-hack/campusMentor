@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
     <link rel="stylesheet" href="../static/css/code.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -51,17 +52,16 @@
         <label class="h3">Tags : </label>
         <input type="text" id="tags" name="tags" value="" data-role="tagsinput" placeholder="html,input,tag" required />
         <br>
-        <label class="h3">Theory</label>
+        <label class="h3 theorytag">Theory</label>
         <br>
         <textarea name="contentDetails" id="contentDetails" rows="40" cols="80">
         </textarea>
         <br><br>
 
-
+        //- <button id="printinconsole" type="button">PRINT</button>
         <h3><button type="button" class="btn btn-outline-success" onclick="showsub()">ENABLE SUBMIT BTN</button></h3>
         <br>
         <div id="my-theory" name="body"></div>
-
         <br>
         <button id="submit" class="btn btn-primary btn-lg btn-block" type="submit" style="display: none;" name="submit" >Submit Blog</button>
     </form>

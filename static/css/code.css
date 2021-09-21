@@ -72,7 +72,6 @@ table th {
 /* Track */
 ::-webkit-scrollbar-track {
   background: #071639; 
-  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {

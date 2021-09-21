@@ -34,9 +34,11 @@
                     <ul id="nav_ul">
                         <li><a href="#hero" data-after="Home">Home</a></li>
                         <li><a href="#services" data-after="Service">Services</a></li>
-                        <li><a href="#projects" data-after="Projects">Projects</a></li>
+                        <li><a href="#blogCards" data-after="Projects">BLOGS</a></li>
                         <li><a href="#about" data-after="About">About</a></li>
                         <li><a href="#contact" data-after="Contact">Contact</a></li>
+                        <li><a href="/login" id="login_logout" data-after="Login">Login</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -49,10 +51,10 @@
         <div class="fd_img parallex3">
          
         </div>
-        <p class="fd_content horizontal">CAMPUS LOG</p>
+        <p class="fd_content horizontal" id="myname">CAMPUS LOG</p>
 
         <p class="fd_content con2" style="position: fixed" id="center_btn">
-          <a class="fd_btn big_btn" href="#" >RESOLVE DOUBTS</a>
+          <a class="fd_btn big_btn" href="/blog-create" >CREATE BLOG</a>
         </p>
 
         <div class="front_mount"></div>
@@ -61,7 +63,7 @@
       <section class="mycards">
         <h2 class="mycard_heading">BLOGS</h2>
         <br><br><br>
-        <div class="container">
+        <div class="container" id="blogCards">
           <div class="card" style="width: 18rem">
             <div class="card-body">
               <h2 class="card-no">01</h2>
@@ -119,10 +121,7 @@
           </div>
         </div>
 
-        <script type="text/javascript" src="../static/js/vanilla-tilt.js"></script>
-        <script type="text/javascript" src="../static/js/tilt.js">
 
-        </script>
       </section>
 
       <section id="services">
@@ -269,10 +268,17 @@
       
      
     </div>
+    
     <script src="../static/js/horizontal.js"></script>
     <script src="../static/js/hidefixedonscroll.js"></script>
     <script src="../static/js/tooglenav.js"></script>
     <script src="../static/js/header.js"></script>
+    <script type="text/javascript" src="../static/js/vanilla-tilt.js"></script>
+    <script type="text/javascript" src="../static/js/tilt.js">
+    </script>
+    <script src="../static/js/getUserByJWT.js"></script>
+    <script src="../static/js/fp_be_handler.js"></script>
+
 
   </body>
 </html>

@@ -11,7 +11,6 @@ const auth = require('../middleware/auth');
 
 app.use(express.static("uploads"))
 
-
 router.route("/Add").post(auth, (req, res) => {
   const blogpost = BlogPost({
     coverImage: req.body.coverImage,
@@ -70,6 +69,14 @@ router.route("/getOtherBlog").get(auth, (req, res) => {
     return res.json({ data: result });
   });
 });
+
+router.route("/getAllBlog").get(auth, (req, res) => {
+  BlogPost.find({ }, (err, result) => {
+    if (err) return res.json(err);
+    return res.json({ data: result });
+  });
+});
+
 
 
 

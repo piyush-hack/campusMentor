@@ -7,62 +7,58 @@ var google = require("googleapis");
 const { OAuth2Client } = require("google-auth-library");
 
 const router = express.Router();
-router.get("/", async (req, res) => {
-  res.send({ msg: "Welcome user" });
 
-});
 
-router.get("/getUser/:id", async (req, res) => {
+router.post("/getUser/", auth, async (req, res) => {
   try {
-    USER.findOne({ _id: req.params.id }, function (err, response) {
+    USER.findOne({ username: req.user.username }, function (err, response) {
       if (err) console.log(err);
       res.send(response);
-    }).select('-_id -password');;
+    }).select("-_id -password");
   } catch (error) {
     res.status(403).send(error);
     console.log(error);
   }
 });
 
-
-router.route("/login").post([check('username', 'User Name is required').notEmpty(),
-check(
-    'password',
-    'password is required'
-).exists()
-], async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
+router
+  .route("/login")
+  .post(
+    [
+      check("username", "User Name is required").notEmpty(),
+      check("password", "password is required").exists(),
+    ],
+    async (req, res) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
-    }
-    try {
+      }
+      try {
         const username = req.body.username;
         const password = req.body.password;
         var givenroll = "basic";
-        if(req.body.roll != undefined){
-            givenroll = req.body.roll
+        if (req.body.roll != undefined) {
+          givenroll = req.body.roll;
         }
         const userfind = await USER.findOne({ username: username });
         if (userfind) {
-            let ismatch = await bcrypt.compare(password, userfind.password);
-            if (ismatch) {
-                let token = await userfind.generateAuthToken(givenroll);
-                console.log(token);
-                res.send({ token })
-            }
-            else {
-                res.json({ msg: "password incorrect" })
-            }
+          let ismatch = await bcrypt.compare(password, userfind.password);
+          if (ismatch) {
+            let token = await userfind.generateAuthToken(givenroll);
+            console.log(token);
+            res.status(200).send({ msg: "user succesfully registered", token });
+          } else {
+            res.json({ msg: "password incorrect" });
+          }
+        } else {
+          res.send("no user found");
         }
-        else{
-            res.send("no user found")
-        }
-    } catch (error) {
+      } catch (error) {
         console.log(error);
         res.status(401).send(error);
+      }
     }
-
-})
+  );
 
 router
   .route("/register")
@@ -86,12 +82,12 @@ router
         const password = req.body.password;
         const cpassword = req.body.confpassword;
         var givenroll = "basic";
-        if(req.body.roll != undefined){
-            givenroll = req.body.roll
+        if (req.body.roll != undefined) {
+          givenroll = req.body.roll;
         }
         if (password === cpassword) {
           const userdata = new USER({
-            roll : givenroll,
+            roll: givenroll,
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
@@ -116,6 +112,5 @@ router
       }
     }
   );
-
 
 module.exports = router;

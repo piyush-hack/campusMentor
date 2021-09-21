@@ -288,11 +288,13 @@ a:hover {
 .fd_content {
   position: absolute;
   color: white;
-  margin-top: 15vw;
-  margin-left: 31vw;
+  width: 100%;
+  top: 40%;
   font-size: 7vw;
   font-weight: 400;
   white-space: nowrap;
+  text-align: center;
+
 }
 
 .fd_btn {
@@ -303,9 +305,7 @@ a:hover {
   padding: 5px 10px 5px 10px;
   font-weight: 300;
   border-radius: 25px;
-  float: right;
   font-size: small;
-  
   transition: 0.3s;
 }
 
@@ -314,8 +314,8 @@ a:hover {
 }
 
 .con2 {
-  margin-top: 25vw;
-  margin-left: 45vw;
+  top : 60%;
+  /* margin-left: 45vw; */
   z-index: 1030;
 
 }
@@ -400,8 +400,8 @@ body {
   position: fixed;
   /* width: 50px; */
   /* background: red; */
-  left: 0;
-  /* top: 50px; */
+text-align: center; 
+ /* top: 50px; */
 }
 
 
@@ -423,23 +423,11 @@ body {
 
 @media only screen and (max-width: 900px) {
 
-  .fd_content{
-    margin-top: 40vh;
-    margin-left: 35vw;
-  }
-  .con2{
-    margin-top: 50vh;
-    margin-left: 33%;
-
-  }
 
   .brand{
     margin-left:0;
   }
   
-/*   .fd_btn{
-    margin: 0px 10px 0px 0px;
-  } */
 }
 
 
