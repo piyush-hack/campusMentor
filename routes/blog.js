@@ -70,7 +70,7 @@ router.route("/getOtherBlog").get(auth, (req, res) => {
   });
 });
 
-router.route("/getAllBlog").get(auth, (req, res) => {
+router.route("/getAllBlog").get( (req, res) => {
   BlogPost.find({ }, (err, result) => {
     if (err) return res.json(err);
     return res.json({ data: result });
