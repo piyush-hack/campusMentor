@@ -1,6 +1,6 @@
 if(!localStorage.getItem("jwt_token")){
   alert("Plz Login First")
-  window.history.back();
+  window.location.href = "/login";
 }
 
 let theEditor;
