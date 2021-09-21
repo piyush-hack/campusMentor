@@ -124,3 +124,7 @@ a {
   text-align: center;
   overflow: unset;
 }
+
+img, iframe{
+  max-width: 80vw;
+}
