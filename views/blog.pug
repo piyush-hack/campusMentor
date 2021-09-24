@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../static/css/front_page.css" />
     <link rel="stylesheet" href="../static/css/code.css">
 
+    <link rel="stylesheet" href="../static/css/loader.css">
 
 
     <title>Blog 1</title>
@@ -74,7 +75,21 @@
                 </div>
 
             </div>
-            <div class="col-sm-8" id="mainContainer">
+            <div class="col-sm-8" id="load">
+                <div class="loader" id="loader">
+                    <div class="rocket">
+                    <img src="../static/images/rocket.svg" />
+                    <img class="cloud" src="../static/images/cloud.svg" style="--i:0;" />
+                    <img class="cloud" src="../static/images/cloud.svg" style="--i:1;" />
+                    <img class="cloud" src="../static/images/cloud.svg" style="--i:2;" />
+                    <img class="cloud" src="../static/images/cloud.svg" style="--i:3;" />
+            
+                    </div>
+                
+                    <span><i></i></span>
+                </div>
+            </div>
+            <div class="col-sm-8" id="mainContainer" style="display:none">
 
                 <div class=" title" id="content_title"></div>
                 <div class="subheading" id="subheading"></div>

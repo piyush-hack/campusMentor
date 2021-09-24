@@ -14,6 +14,9 @@ function setdatainbody(doc_data){
     }
 
     document.getElementById("body").innerHTML = doc_data["body"];
+    
+    document.getElementById("load").style.display = "none";
+    document.getElementById("mainContainer").style.display = "block";
 
 
 }
