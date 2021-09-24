@@ -13,9 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../static/css/front_page.css" />
     <link rel="stylesheet" href="../static/css/code.css">
-
     <link rel="stylesheet" href="../static/css/loader.css">
-
 
     <title>Blog 1</title>
 
@@ -76,22 +74,18 @@
 
             </div>
             <div class="col-sm-8" id="load">
-                <div class="loader" id="loader">
-                    <div class="rocket">
-                    <img src="../static/images/rocket.svg" />
-                    <img class="cloud" src="../static/images/cloud.svg" style="--i:0;" />
-                    <img class="cloud" src="../static/images/cloud.svg" style="--i:1;" />
-                    <img class="cloud" src="../static/images/cloud.svg" style="--i:2;" />
-                    <img class="cloud" src="../static/images/cloud.svg" style="--i:3;" />
-            
-                    </div>
-                
-                    <span><i></i></span>
+                <div class="loadcard">
+                    <div class="loadcard__description loading" style="--descH : 3rem; --descW : 50%"></div>
+                    <div class="loadcard__description loading" style="--descH : 2rem; --descW : 100%"></div>
+
+                    <div class="loadcard__title loading" style="--titlewidth : 40%"></div>
+                    <div class="loadcard__image loading"></div>
+                    <div class="loadcard__image loading"></div>
                 </div>
             </div>
             <div class="col-sm-8" id="mainContainer" style="display:none">
 
-                <div class=" title" id="content_title"></div>
+                <div class="title" id="content_title"></div>
                 <div class="subheading" id="subheading"></div>
                 <div class="d-flex flex-column">
                     <div class="tags" id="tags"></div>
