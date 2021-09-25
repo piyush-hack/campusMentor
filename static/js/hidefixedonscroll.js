@@ -1,28 +1,17 @@
 window.onscroll = function (e) {
-//     console.log(window.scrollY); // Value of scroll Y in px
-    if(window.scrollY > 500){
-        
-        // document.getElementsByClassName("fd_content")[0].style.display="none";
-        // document.getElementsByClassName("fd_content")[1].style.display="none";
-
-        $(".fd_content").hide(500);
-
-    }else{
-        // document.getElementsByClassName("fd_content")[0].style.display="block";
-        // document.getElementsByClassName("fd_content")[1].style.display="block";
-
-        $(".fd_content").show(500);
-
+  con_pos = document.getElementsByClassName("con2")[0].style.position;
+  if (window.scrollY > 400) {
+    if (con_pos == "fixed") {
+      $(".con2").css("margin-top", window.scrollY);
+      $(".con2").css("position", "relative");
     }
+  } else {
 
+    $(".con2").css("margin-top", '0px');
 
-    if(window.scrollY > 400){
-        $(".con2").css('z-index', 0);
-    }else{
-        $(".con2").css('z-index', 1030);
-    }
+    $(".con2").css("position", "fixed");
+  }
 };
-
 
 // $("#toogle_nav").click(function () {
 //   $(".alloptions").toggle(1000);

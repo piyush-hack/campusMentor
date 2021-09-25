@@ -289,8 +289,8 @@ a:hover {
   position: absolute;
   color: white;
   width: 100%;
-  top: 40%;
-  font-size: 7vw;
+  top: 40vh;
+  font-size: 45px;
   font-weight: 400;
   white-space: nowrap;
   text-align: center;
@@ -314,9 +314,7 @@ a:hover {
 }
 
 .con2 {
-  top : 60%;
-  /* margin-left: 45vw; */
-  z-index: 1030;
+  top : 58vh;
 
 }
 
@@ -383,25 +381,11 @@ body {
   padding: 0;
 }
 
-/* .header {
-  position: absolute;
-  top: 35%;
-  left: 40%;
-  color: white;
-  font-size: 7vw;
-  font-weight: 600;
-  white-space: nowrap;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-} */
 
 .horizontal {
-  position: fixed;
-  /* width: 50px; */
-  /* background: red; */
+
 text-align: center; 
- /* top: 50px; */
+
 }
 
 
@@ -451,6 +435,7 @@ text-align: center;
 
 #services{
   color: white;
+  z-index: 1031;
 }
 
 

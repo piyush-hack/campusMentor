@@ -13,7 +13,7 @@ function myname(userdata) {
     };
 
     var username = userdata.username.toUpperCase();
-    document.getElementById("myname").innerHTML = username;
+    document.getElementById("myname").innerHTML = " <span style='font-size:25px'>Hi </span><br>" +  username;
   }
 }
 
