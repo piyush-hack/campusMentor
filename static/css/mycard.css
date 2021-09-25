@@ -16,7 +16,7 @@
 .mycards:before {
   content: "";
   position: absolute;
-  top: 1000px;
+  top: 100vh;
   left: 0;
   width: 100%;
   height: 100%;
@@ -27,7 +27,7 @@
 .mycards:after {
   content: "";
   position: absolute;
-  top: 1000px;
+  top: 100vh;
   left: 0;
   width: 100%;
   height: 100%;
@@ -37,7 +37,7 @@
 
 .mycard_heading {
   position: absolute;
-  top: 1050px;
+  top: 120vh;
   color: #fff;
 }
 

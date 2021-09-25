@@ -1,6 +1,6 @@
 window.onscroll = function (e) {
   con_pos = document.getElementsByClassName("con2")[0].style.position;
-  if (window.scrollY > 400) {
+  if (window.scrollY > 200) {
     if (con_pos == "fixed") {
       $(".con2").css("margin-top", window.scrollY);
       $(".con2").css("position", "relative");
