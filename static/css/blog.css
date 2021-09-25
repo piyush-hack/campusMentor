@@ -47,14 +47,18 @@ a {
 }
 
 .title {
-  font-size: 5vh;
+  font-size: 25px;
   text-transform: uppercase;
   /* width: 100%; */
   overflow: scroll;
 }
 
+hr{
+  border-top: 3px solid #b1b1b1;
+  width: 100%;
+}
 .subheading {
-  font-size: 25px;
+  font-size: 20px;
   color: #b1b1b1;
 }
 
