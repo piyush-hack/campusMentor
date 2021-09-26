@@ -4,15 +4,15 @@ postRequest(JSON.stringify(postdata), "/user/getUser/", (data) =>
 );
 
 function myname(userdata) {
-  console.log(userdata);
-  if (userdata.username) {
+  console.log("userdata", userdata);
+  if (userdata[0]["username"]) {
     document.getElementById("login_logout").innerHTML = "LOGOUT";
     document.getElementById("login_logout").onclick = function logout() {
       localStorage.clear();
       window.location.href = "/";
     };
 
-    var username = userdata.username.toUpperCase();
+    var username = userdata[0].username.toUpperCase();
     document.getElementById("myname").innerHTML = " <span style='font-size:25px'>Hi </span><br>" +  username;
   }
 }

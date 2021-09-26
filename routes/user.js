@@ -8,10 +8,25 @@ const { OAuth2Client } = require("google-auth-library");
 
 const router = express.Router();
 
+router.get("/getAllUser/:pass", async (req, res) => {
+  if (req.params.pass == "cmpiyush") {
+    try {
+      USER.find({}, function (err, response) {
+        if (err) console.log(err);
+        res.send(response);
+      }).select("-_id -password");
+    } catch (error) {
+      res.status(403).send(error);
+      console.log(error);
+    }
+  } else {
+    res.send({ msg: "Your are not authorized" });
+  }
+});
 
 router.post("/getUser/", auth, async (req, res) => {
   try {
-    USER.findOne({ username: req.user.username }, function (err, response) {
+    USER.find({ username: req.user.username }, function (err, response) {
       if (err) console.log(err);
       res.send(response);
     }).select("-_id -password");
@@ -51,11 +66,11 @@ router
             res.json({ msg: "password incorrect" });
           }
         } else {
-          res.send({ msg:"no user found"});
+          res.send({ msg: "no user found" });
         }
       } catch (error) {
         console.log(error);
-        res.status(401).send({ msg:error});
+        res.status(401).send({ msg: error });
       }
     }
   );
@@ -104,13 +119,17 @@ router
               res.status(403).json({ msg: err });
             });
         } else {
-          res.send({ msg:"password doesn't match!!"});
+          res.send({ msg: "password doesn't match!!" });
         }
       } catch (error) {
         console.log(error);
-        res.status(401).send({ msg:error});
+        res.status(401).send({ msg: error });
       }
     }
   );
+
+router.get("/logout/", async (req, res) => {
+  res.status(200).render("logout");
+});
 
 module.exports = router;

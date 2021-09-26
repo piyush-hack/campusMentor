@@ -7,7 +7,7 @@ function postRequest(data, url, callback) {
   xmlhttp.setRequestHeader("x-auth-token", localStorage.getItem("jwt_token"));
   xmlhttp.onload = function () {
     // do something to response
-    // alert(this.responseText);
+    console.log(this.responseText);
     callback(JSON.parse(this.responseText));
   };
   xmlhttp.send(JSON.stringify(sendata));
