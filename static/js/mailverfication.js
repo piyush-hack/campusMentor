@@ -8,7 +8,7 @@ function verfiymail() {
 function sendalert(data){
   console.log(data)
   if(data[0]){
-    alert(data[0].msg);
+    alert( JSON.stringify(data[0].msg));
   }else{
     alert(data.msg)
   }

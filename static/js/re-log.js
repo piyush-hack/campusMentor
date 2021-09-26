@@ -33,7 +33,12 @@ function post_re(url, data) {
   //   );
   xmlhttp.onload = function () {
     // do something to response
-    alert( JSON.parse(this.responseText).msg);
+    data =  JSON.parse(this.responseText);
+    if(data[0]){
+      alert( JSON.stringify(data[0].msg));
+    }else{
+      alert( JSON.stringify(data.msg))
+    }
     rresponse = this.responseText;
     registerd(this.responseText);
   };

@@ -124,8 +124,8 @@ router
 
               console.log("----------", hashPass);
               mytext = `Click here to verify 
-              <a href='http://localhost:3000/user/verify?un=${req.body.username}&hp=${hashPass}'>Verfiy Now</a>
-              or http://localhost:3000/user/verify?un=${req.body.username}&hp=${hashPass} paste this link in your browser
+              <a href='https://campusmentor.herokuapp.com/user/verify?un=${req.body.username}&hp=${hashPass}'>Verfiy Now</a>
+              or https://campusmentor.herokuapp.com/user/verify?un=${req.body.username}&hp=${hashPass} paste this link in your browser
               `;
               to = req.body.email;
               var mailResponse = await sendmail(subject, mytext, to);
@@ -172,8 +172,8 @@ router
         console.log("before----------", hashPass);
         hashPass = await encodeURIComponent(hashPass);
         console.log("----------", hashPass);
-        mytext = ` Verify your mail to Login In Campus Mentor <a href='http://localhost:3000/user/verify?un=${req.user.username}&hp=${hashPass}'>Verfiy Now</a> or
-        http://localhost:3000/user/verify?un=${req.user.username}&hp=${hashPass} paste this link in your browser`;
+        mytext = ` Verify your mail to Login In Campus Mentor <a href='https://campusmentor.herokuapp.com/user/verify?un=${req.user.username}&hp=${hashPass}'>Verfiy Now</a> or
+        https://campusmentor.herokuapp.com/user/verify?un=${req.user.username}&hp=${hashPass} paste this link in your browser`;
         to = req.user.email;
         var mailResponse = await sendmail(subject, mytext, to);
         res.status(200).send({
