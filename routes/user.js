@@ -131,7 +131,7 @@ router
               var mailResponse = await sendmail(subject, mytext, to);
               res
                 .status(200)
-                .send({ msg: "user succesfully saved. Check Your Mail For Verfication", token: token });
+                .send({ msg: "user succesfully saved. Check Your Mail For Verfication. Also Check Spam Folder", token: token });
             })
             .catch((err) => {
               res.status(403).json({ msg: err });
@@ -177,7 +177,7 @@ router
         to = req.user.email;
         var mailResponse = await sendmail(subject, mytext, to);
         res.status(200).send({
-          msg: "Mail Sent Check mail For Further Instructions",
+          msg: "Mail Sent Check mail For Further Instructions. Also Check Spam Folder",
           mail: mailResponse,
         });
       } catch (error) {
