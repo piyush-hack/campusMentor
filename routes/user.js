@@ -46,16 +46,16 @@ router
           if (ismatch) {
             let token = await userfind.generateAuthToken(givenroll);
             console.log(token);
-            res.status(200).send({ msg: "user succesfully registered", token });
+            res.status(200).send({ msg: "User succesfully loggedin", token });
           } else {
             res.json({ msg: "password incorrect" });
           }
         } else {
-          res.send("no user found");
+          res.send({ msg:"no user found"});
         }
       } catch (error) {
         console.log(error);
-        res.status(401).send(error);
+        res.status(401).send({ msg:error});
       }
     }
   );
@@ -74,7 +74,7 @@ router
     async (req, res) => {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ msg: errors.array() });
       }
       try {
         // return res.status(200).send({ msg: "user succesfully login", token })
@@ -98,17 +98,17 @@ router
             .then(() => {
               res
                 .status(200)
-                .send({ msg: "user succesfully registered", token });
+                .send({ msg: "User succesfully registered", token });
             })
             .catch((err) => {
               res.status(403).json({ msg: err });
             });
         } else {
-          res.send("password doesn't match!!");
+          res.send({ msg:"password doesn't match!!"});
         }
       } catch (error) {
         console.log(error);
-        res.status(401).send(error);
+        res.status(401).send({ msg:error});
       }
     }
   );
