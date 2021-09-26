@@ -13,7 +13,18 @@ function myname(userdata) {
     };
 
     var username = userdata[0].username.toUpperCase();
-    document.getElementById("myname").innerHTML = " <span style='font-size:25px'>Hi </span><br>" +  username;
+
+    if (userdata[0].status != "approved") {
+      document.getElementById("myname").innerHTML =
+        " <span style='font-size:25px'>Hi </span><br>" +
+        username +
+        `<br><a class="fd_btn big_btn" onclick="openmail(this)" >Verfiy Mail</a>`;
+    }else{
+      document.getElementById("myname").innerHTML =
+      " <span style='font-size:25px'>Hi </span><br>" +
+      username;
+      document.getElementsByClassName("con2")[0].innerHTML = ""
+    }
   }
 }
 

@@ -315,7 +315,22 @@ a:hover {
 
 .con2 {
   top : 58vh;
+  display: none;
+}
 
+.con2 input{
+  border-radius: 10px;
+  width: 300px;
+  height: 30px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  text-align: center;
+
+
+}
+
+.con2 input{
+  outline:0 !important;
 }
 
 .parallex1 {

@@ -35,6 +35,10 @@ const user = userschema({
     confpassword: {
         type: String,
     },
+    status:{
+        type : String,
+        "default" : "unapproved"
+    }
 });
 
 

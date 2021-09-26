@@ -4,8 +4,9 @@ const bcrypt = require("bcryptjs");
 const auth = require("../middleware/auth");
 const { check, validationResult } = require("express-validator");
 var google = require("googleapis");
+const CryptoJS = require("crypto-js");
 const { OAuth2Client } = require("google-auth-library");
-
+const sendmail = require("../middleware/sendmail");
 const router = express.Router();
 
 router.get("/getAllUser/:pass", async (req, res) => {
@@ -14,7 +15,7 @@ router.get("/getAllUser/:pass", async (req, res) => {
       USER.find({}, function (err, response) {
         if (err) console.log(err);
         res.send(response);
-      }).select("-_id -password");
+      }).select("-_id");
     } catch (error) {
       res.status(403).send(error);
       console.log(error);
@@ -29,7 +30,7 @@ router.post("/getUser/", auth, async (req, res) => {
     USER.find({ username: req.user.username }, function (err, response) {
       if (err) console.log(err);
       res.send(response);
-    }).select("-_id -password");
+    }).select("-_id");
   } catch (error) {
     res.status(403).send(error);
     console.log(error);
@@ -110,10 +111,27 @@ router
           let token = await userdata.generateAuthToken(givenroll);
           await userdata
             .save()
-            .then(() => {
+            .then(async () => {
+              subject = "Verify Your Account";
+              hashPass = await CryptoJS.AES.encrypt(
+                req.body.password,
+                "verfiy email"
+              ).toString();
+
+              console.log("before----------", hashPass);
+
+              hashPass = await encodeURIComponent(hashPass);
+
+              console.log("----------", hashPass);
+              mytext = `Click here to verify 
+              <a href='http://localhost:3000/user/verify?un=${req.body.username}&hp=${hashPass}'>Verfiy Now</a>
+              or http://localhost:3000/user/verify?un=${req.body.username}&hp=${hashPass} paste this link in your browser
+              `;
+              to = req.body.email;
+              var mailResponse = await sendmail(subject, mytext, to);
               res
                 .status(200)
-                .send({ msg: "User succesfully registered", token });
+                .send({ msg: "user succesfully saved. Check Your Mail For Verfication", token: token });
             })
             .catch((err) => {
               res.status(403).json({ msg: err });
@@ -127,6 +145,74 @@ router
       }
     }
   );
+
+router
+  .route("/getVerifyMail")
+  .post(
+    [
+      check(
+        "password",
+        "Please enter a password "
+      ).isLength({ min: 6 }),
+    ],
+    auth,
+    async (req, res) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json(errors.array());
+      }
+
+      try {
+        subject = "Verify Your Account";
+        console.log("password entered : ", req.body.password);
+        hashPass = await CryptoJS.AES.encrypt(
+          req.body.password,
+          "verfiy email"
+        ).toString();
+        console.log("before----------", hashPass);
+        hashPass = await encodeURIComponent(hashPass);
+        console.log("----------", hashPass);
+        mytext = ` Verify your mail to Login In Campus Mentor <a href='http://localhost:3000/user/verify?un=${req.user.username}&hp=${hashPass}'>Verfiy Now</a> or
+        http://localhost:3000/user/verify?un=${req.user.username}&hp=${hashPass} paste this link in your browser`;
+        to = req.user.email;
+        var mailResponse = await sendmail(subject, mytext, to);
+        res.status(200).send({
+          msg: "Mail Sent Check mail For Further Instructions",
+          mail: mailResponse,
+        });
+      } catch (error) {
+        console.log({ msg: error });
+      }
+    }
+  );
+
+router.route("/verify").get(async (req, res) => {
+  username = req.query.un;
+  CryptoJSpassword = CryptoJS.AES.decrypt(req.query.hp, "verfiy email");
+  password = CryptoJSpassword.toString(CryptoJS.enc.Utf8);
+  console.log("password", password, "----", CryptoJSpassword);
+
+  USER.findOne({ username: username }, async (err, result) => {
+    if (err) return res.status(403).send(err);
+    // console.log(result);
+    let ismatch = await bcrypt.compare(password, result["password"]);
+
+    if (ismatch) {
+      USER.findOneAndUpdate(
+        { username: username },
+        { status: "approved" },
+        { new: true },
+        async (uerr, updatedresult) => {
+          if (uerr) return res.status(403).send(uerr);
+          return res.json({ msg: "Account verfied" });
+        }
+      );
+    } else {
+      return res.json({ msg: "Verfication Failed. Passord didn't match" });
+    }
+  }).select("-_id");
+  // res.status(200).send({ username: username, password: password });
+});
 
 router.get("/logout/", async (req, res) => {
   res.status(200).render("logout");
