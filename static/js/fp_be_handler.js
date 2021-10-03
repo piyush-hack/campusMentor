@@ -3,6 +3,8 @@ postRequest(JSON.stringify(postdata), "/user/getUser/", (data) =>
   console.log(myname(data))
 );
 
+document.getElementById("reset_site").style.display = "block";
+
 function myname(userdata) {
   console.log("userdata", userdata);
   if (userdata[0]["username"]) {
