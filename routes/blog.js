@@ -40,6 +40,14 @@ router.route("/posts").get(async (req, res) => {
   res.send(posts);
 });
 
+router.route("/cmpiyush_visitors/:id").get(async (req, res) => {
+
+
+    const visitors = await BlogPost.find({ _id: req.params.id} , "visitors").exec();
+    res.send(visitors);
+
+});
+
 router.route("/IdBlog/:id").get(auth, (req, res) => {
   if (req.user.status != "approved") {
     return res.send({
