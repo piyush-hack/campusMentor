@@ -40,6 +40,10 @@ const BlogPost = Schema({
         type:Number,
         default:0
     },
+    visitors : {
+        type : Array,
+        "defalut" : []
+    },
     // Status:{
     //     type:Number,
     //     default:0// 1 for show and 2 for feature

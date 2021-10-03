@@ -47,13 +47,20 @@ router.route("/IdBlog/:id").get(auth, (req, res) => {
         "Please approve your account first by Mail Verfication To Move Further",
     });
   }
-  BlogPost.findOne(
-    { _id: req.params.id},
+
+  BlogPost.update(
+    { _id: req.params.id },
+    { $addToSet: { visitors: req.user.username } },
     (err, result) => {
       if (err) return res.status(403).send(err);
-      return res.send(result);
+      return console.log(result);
     }
   );
+
+  BlogPost.findOne({ _id: req.params.id }, (err, result) => {
+    if (err) return res.status(403).send(err);
+    return res.send(result);
+  });
 });
 
 router.route("/UserBlog/:username").get((req, res) => {
