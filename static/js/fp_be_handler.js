@@ -7,6 +7,7 @@ function myname(userdata) {
   console.log("userdata", userdata);
   if (userdata[0]["username"]) {
     document.getElementById("login_logout").innerHTML = "LOGOUT";
+    document.getElementById("reset_site").style.display = "none";
     document.getElementById("login_logout").onclick = function logout() {
       localStorage.clear();
       window.location.href = "/";
