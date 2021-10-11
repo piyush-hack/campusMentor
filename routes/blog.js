@@ -157,4 +157,32 @@ router.route("/delete/:id").delete(auth, (req, res) => {
   );
 });
 
+router.route("/like/").post(auth, (req, res) => {
+  BlogPost.findOneAndUpdate(
+    {_id :req.body.id}, {$addToSet : {'likes' : req.user.username}},
+    (err, result) => {
+      if (err) return res.json(err);
+      else if (result) {
+        // console.log(result);
+        return res.json("liked");
+      }
+      return res.json("nliked");
+    }
+  );
+});
+
+router.route("/dislike/").post(auth, (req, res) => {
+  BlogPost.findOneAndUpdate(
+    {_id :req.body.id}, {$pull : {'likes' : req.user.username}},
+    (err, result) => {
+      if (err) return res.json(err);
+      else if (result) {
+        // console.log(result);
+        return res.json("disliked");
+      }
+      return res.json("ndisliked");
+    }
+  );
+});
+
 module.exports = router;

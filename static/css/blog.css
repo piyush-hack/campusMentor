@@ -6,7 +6,6 @@ a {
   min-width: 100vw;
   min-height: 100vh;
   padding-top: 100px;
-
 }
 
 .container:before {
@@ -40,6 +39,8 @@ a {
   max-width: 300px;
   margin-right: 50px;
 }
+
+
 #aboutsite {
   justify-content: center;
   align-items: center;
@@ -48,7 +49,7 @@ a {
   overflow: inherit;
 }
 
-.modal-content{
+.modal-content {
   color: #071639;
 }
 .title {
@@ -58,7 +59,7 @@ a {
   overflow: scroll;
 }
 
-hr{
+hr {
   border-top: 3px solid #b1b1b1;
   width: 100%;
 }
@@ -157,15 +158,35 @@ hr{
 
 img,
 iframe {
-  max-width:100%;
+  max-width: 100%;
 }
 
-
-footer{
+footer {
   background-color: #071639;
 
   background-color: transparent;
   text-align: center;
   justify-content: center;
   align-items: center;
+}
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
+    no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+}
+
+.is-active {
+  transition-duration: 1.5s;
+  background-position: -2800px 0;
+}
+
+
+.placement {
+  transform: translate(-16%, -28%);
 }

@@ -52,23 +52,25 @@
             <div class="col-sm-3">
                 <div id="blogging" class="d-flex flex-column">
                     <a class="nav-link" href="#">
-                        <div class="text-light">0k Followers</div>
+                        <div class="text-light">0k</div>
                         <span class="sr-only">(current)</span>
                     </a>
 
-                    
-
+                
                     <button type="button" class="btn btn-outline-light follow_btn">Follow</button>
                     <br>
 
-                    <div class="d-flex flex-row">
-                    <button type="button" class="btn btn-light btn-circle btn-md" data-bs-toggle="tooltip"  data-bs-placement="bottom" title="Subscribe to get an Email whenever Chetan Bhagat publishes a Blog"> 
-                        <i class="fa fa-envelope"></i>
-                    </button>
-                    <button id="copystart" class="btn btn-light btn-circle btn-md" type="button" data-bs-placement="bottom" title="Copy code when code is clicked">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <div class="d-flex flex-row" style="    transform: translate(6%, 28%);">
+                        <button type="button" class="btn btn-light btn-circle btn-md" data-bs-toggle="tooltip"  data-bs-placement="bottom" title="Subscribe to get an Email whenever Chetan Bhagat publishes a Blog"> 
+                            <i class="fa fa-envelope"></i>
+                        </button>
+                        <button id="copystart" class="btn btn-light btn-circle btn-md" type="button" data-bs-placement="bottom" title="Copy code when code is clicked">
+                            <i class="fa fa-copy"></i>
+                        </button>
+                        <div class="placement">
+                            <div id="like" class="heart" onclick="like()"></div>
+                        </div>
+                    </div>
               
                 </div>
 
@@ -136,7 +138,7 @@
 
                     <div class="d-flex flex-row blog_details">
                         <div class="date" id="date"></div>
-                        <div class="d-flex flex-row" id="likes"><i class="fa fa-thumbs-up"></i><div id="t_likes"></div></div>
+                        
                         <div class="d-flex flex-row" id="comments"><i class="fa fa-comment"></i><div id="t_comment"></div></div>
                     </div>
                 </div>
@@ -153,6 +155,7 @@
         </div>
     </footer>
 
+    <script src="../static/js/getUserByJWT.js"></script>
     <script src="../static/js/tooglenav.js"></script>
 
     <script src="../static/js/header.js"></script>
@@ -165,7 +168,9 @@
 
     <script src="../static/js/copy_blockquotes.js"></script>
     <script src="../static/js/setdatainbody.js"></script>
+    <script src="../static/js/likeLogic.js"></script>
 
+    <!-- razorpay scripts -->
     <script src="../static/js/capture_order_id.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="../static/js/get_order_details.js"></script>

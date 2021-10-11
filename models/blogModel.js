@@ -29,8 +29,8 @@ const BlogPost = Schema({
     tags:[String],
 
     likes:{
-        type:Number,
-        default:0
+        type : Array,
+        "default" : []
     },
     share:{
         type:Number,

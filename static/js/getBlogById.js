@@ -1,6 +1,6 @@
 var xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
 var theUrl = "/blog/IdBlog/" + get("id");
-if(!localStorage.getItem("jwt_token")){
+if (!localStorage.getItem("jwt_token")) {
   window.location.href = "/login";
   die("You need to login first");
 }
@@ -9,13 +9,13 @@ xmlhttp.onreadystatechange = function () {
     // Typical action to be performed when the document is ready:
     // document.getElementById("demo").innerHTML = xmlhttp.responseText;
 
+    // console.log(JSON.parse(this.responseText))
+    var doc_data = JSON.parse(this.responseText);
 
-    var doc_data = JSON.parse(xmlhttp.responseText);
-
-    if(doc_data.verifymailerr){
+    if (doc_data.verifymailerr) {
       alert(doc_data.verifymailerr);
-      window.location.href = "/"
-    }else{
+      window.location.href = "/";
+    } else {
       setdatainbody(doc_data);
     }
 
@@ -27,7 +27,17 @@ xmlhttp.setRequestHeader("x-auth-token", localStorage.getItem("jwt_token"));
 
 xmlhttp.send();
 
-function get(name){
-    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
-       return decodeURIComponent(name[1]);
- }
+function get(name) {
+  if (
+    (name = new RegExp("[?&]" + encodeURIComponent(name) + "=([^&]*)").exec(
+      location.search
+    ))
+  )
+    return decodeURIComponent(name[1]);
+}
+
+$(function () {
+  $(".heart").on("click", function () {
+    $(this).toggleClass("is-active");
+  });
+});
