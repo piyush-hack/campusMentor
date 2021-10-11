@@ -42,7 +42,15 @@ const BlogPost = Schema({
     },
     visitors : {
         type : Array,
-        "defalut" : []
+        "default" : []
+    },
+    price : {
+        type : Number,
+        "default" : 0
+    },
+    accessTo : {
+        type : String,
+
     },
     // Status:{
     //     type:Number,

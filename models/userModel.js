@@ -39,6 +39,7 @@ const user = userschema({
         type : String,
         "default" : "unapproved"
     }
+
 });
 
 

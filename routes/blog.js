@@ -8,8 +8,50 @@ const auth = require("../middleware/auth");
 // const path = require('path');
 // const multer = require('multer');
 // const multiparty = require('connect-multiparty');
+const Razorpay = require("razorpay");
 
 app.use(express.static("uploads"));
+
+let instance = new Razorpay({
+  key_id: "rzp_test_O7q0EhSlhM8o2B", // your `KEY_ID`
+  key_secret: "U4iA3CaZoEwZEP8lXa4OVid6", // your `KEY_SECRET`
+});
+
+router.route("/api/payment/order").post((req, res) => {
+  params = req.body;
+  instance.orders
+    .create(params)
+    .then((data) => {
+      res.send({ sub: data, status: "success" });
+    })
+    .catch((error) => {
+      res.send({ sub: error, status: "failed" });
+    });
+});
+
+router.route("/api/payment/verify").post(auth, (req, res) => {
+  body = req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
+  var crypto = require("crypto");
+  var expectedSignature = crypto
+    .createHmac("sha256", "U4iA3CaZoEwZEP8lXa4OVid6")
+    .update(body.toString())
+    .digest("hex");
+  console.log("sig" + req.body.razorpay_signature);
+  console.log("sig" + expectedSignature);
+  var response = { status: "failure" };
+  if (expectedSignature === req.body.razorpay_signature) {
+    response = { status: "success" };
+    BlogPost.update(
+      { _id: req.body.blog_id },
+      { $addToSet: { accessTo: req.user.username } },
+      (err, result) => {
+        if (err) return res.status(403).send(err);
+        return console.log(result);
+      }
+    );
+  }
+  res.send(response);
+});
 
 router.route("/Add").post(auth, (req, res) => {
   const blogpost = BlogPost({
@@ -41,11 +83,11 @@ router.route("/posts").get(async (req, res) => {
 });
 
 router.route("/cmpiyush_visitors/:id").get(async (req, res) => {
-
-
-    const visitors = await BlogPost.find({ _id: req.params.id} , "visitors").exec();
-    res.send(visitors);
-
+  const visitors = await BlogPost.find(
+    { _id: req.params.id },
+    "visitors"
+  ).exec();
+  res.send(visitors);
 });
 
 router.route("/IdBlog/:id").get(auth, (req, res) => {
