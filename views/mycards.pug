@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../static/css/mycard.css" />
+    <link rel="stylesheet" href="../static/css/loader.css">
+    <title>Document</title>
+    <style>.mycards:before { top: 0vh; } .mycards:after {top: 0vh; } .mycard_heading {top: 0vh; }
+
+    </style>
+</head>
+<body>
+    <section class="mycards">
+        <h2 class="mycard_heading">BLOGS BY #{username}</h2>
+        <br><br><br>
+
+        <div class="container" id="blogCards">
+
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h2 class="card-no h2">0</h2>
+              <h3 class="card-title h3 loadcard__description loading " style=" margin-left: -30px; --descH : 3rem; --descW : 150%"></h3>
+              <p class="card-text">
+                <div class="loadcard__description loading" style="margin-left: -55px; --descH : 6rem; --descW : 200%"></div>
+                 <br>
+                  <div class="loadcard__description loading" style="margin-left: -20px; --descH : 3rem; --descW : 130%"></div>
+              </p>
+              <a href="#blogCards" class="">Visit Blog</a>
+            </div>
+          </div>
+
+        </div>
+
+
+    </section>
+    <script type="text/javascript" src="../static/js/vanilla-tilt.js"></script>
+    <script type="text/javascript" src="../static/js/tilt.js"></script>
+    <script src="../static/js/getUserByJWT.js"></script>
+
+    <script src="../static/js/getUserBlogs"></script>
+</body>
+</html>

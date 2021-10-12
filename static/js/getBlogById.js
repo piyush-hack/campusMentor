@@ -36,8 +36,5 @@ function get(name) {
     return decodeURIComponent(name[1]);
 }
 
-$(function () {
-  $(".heart").on("click", function () {
-    $(this).toggleClass("is-active");
-  });
-});
+
+

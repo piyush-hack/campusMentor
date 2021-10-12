@@ -21,12 +21,16 @@ function likeDone(data){
     // alert(JSON.stringify(data));
     if(data == "liked"){
         $(".heart").addClass("is-active");
-        $("#like").on("click", function(){ dislike(); });
+        document.getElementById("like").onclick = function () {
+          dislike();
+        };
     }
 
     if(data == "disliked"){
         $(".heart").removeClass("is-active");
-        $("#like").on("click", function(){ like(); });
+        document.getElementById("like").onclick = function () {
+          like();
+        };
     }
 }
 

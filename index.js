@@ -44,12 +44,19 @@ app.get("/", (req, res) => {
   res.status(200).render("frontpage");
 });
 
+app.get("/userBlog", (req, res) => {
+  username = req.query.username;
+  params = {"username" : username}
+  res.status(200).render("mycards" , params);
+});
+
 app.get("/login", async (req, res) => {
   res.status(200).render("login_page");
 });
 
 const userrouter = require("./routes/user");
 const blogrouter = require("./routes/blog");
+const { param } = require("./routes/user");
 
 // const profilerouter = require('./routes/profile')
 // const sellerrouter = require('./routes/sellerprofile')
