@@ -62,7 +62,7 @@ router
           if (ismatch) {
             let token = await userfind.generateAuthToken(givenroll);
             console.log(token);
-            res.status(200).send({ msg: "User succesfully loggedin", token });
+            res.status(200).send({ msg: "User succesfully loggedin", token :  token });
           } else {
             res.json({ msg: "password incorrect" });
           }

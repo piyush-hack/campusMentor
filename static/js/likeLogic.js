@@ -1,45 +1,42 @@
-
-function like(){
-
-    blog_id = get("id")
-    var postdata = { id : blog_id };
-    postRequest(JSON.stringify(postdata), "/blog/like", (data) =>
-      likeDone(data)
-    );
+function like() {
+  blog_id = get("id");
+  var postdata = { id: blog_id };
+  postRequest(JSON.stringify(postdata), "/blog/like", (data) => likeDone(data));
 }
 
-function dislike(){
+function dislike() {
 
-    blog_id = get("id")
-    var postdata = { id : blog_id };
-    postRequest(JSON.stringify(postdata), "/blog/dislike", (data) =>
-      likeDone(data)
-    );
+  blog_id = get("id");
+  var postdata = { id: blog_id };
+  postRequest(JSON.stringify(postdata), "/blog/dislike", (data) =>
+    likeDone(data)
+  );
 }
 
-function likeDone(data){
-    // alert(JSON.stringify(data));
-    if(data == "liked"){
-        $(".heart").addClass("is-active");
-        document.getElementById("like").onclick = function () {
-          dislike();
-        };
-    }
+function likeDone(data) {
+  if (data["verifymailerr"]) {
+    alert(JSON.stringify(data));
+  }
+  if (data == "liked") {
+    $(".heart").addClass("is-active");
+    document.getElementById("like").onclick = function () {
+      dislike();
+    };
+  }
 
-    if(data == "disliked"){
-        $(".heart").removeClass("is-active");
-        document.getElementById("like").onclick = function () {
-          like();
-        };
-    }
+  if (data == "disliked") {
+    $(".heart").removeClass("is-active");
+    document.getElementById("like").onclick = function () {
+      like();
+    };
+  }
 }
-
 
 function get(name) {
-    if (
-      (name = new RegExp("[?&]" + encodeURIComponent(name) + "=([^&]*)").exec(
-        location.search
-      ))
-    )
-      return decodeURIComponent(name[1]);
-  }
+  if (
+    (name = new RegExp("[?&]" + encodeURIComponent(name) + "=([^&]*)").exec(
+      location.search
+    ))
+  )
+    return decodeURIComponent(name[1]);
+}

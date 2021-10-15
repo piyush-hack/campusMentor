@@ -1,3 +1,5 @@
+
+
 var postdata = { a: " " };
 postRequest(JSON.stringify(postdata), "/user/getUser/", (data) =>
   console.log(myname(data))
@@ -6,6 +8,7 @@ postRequest(JSON.stringify(postdata), "/user/getUser/", (data) =>
 document.getElementById("reset_site").style.display = "block";
 
 function myname(userdata) {
+  // alert("userdata", userdata);
   console.log("userdata", userdata);
   if (userdata[0]["username"]) {
     document.getElementById("login_logout").innerHTML = "LOGOUT";

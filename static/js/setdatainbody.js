@@ -2,35 +2,43 @@ var username = "null";
 
 function setdatainbody(doc_data) {
   console.log(doc_data);
-  document.getElementById("like").onclick = function () {
-    like();
-  };
 
-  var xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
-  var theUrl = "/user/getUser/";
-  var sendata = { fff: "ddd" };
-  xmlhttp.open("POST", theUrl);
-  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xmlhttp.setRequestHeader("x-auth-token", localStorage.getItem("jwt_token"));
-  xmlhttp.onload = function () {
-    // do something to response
-    console.log(this.responseText);
-    username = JSON.parse(xmlhttp.responseText)[0]["username"];
-    // alert("respone" + username + "=---" + doc_data["likes"]);
-    if (doc_data["likes"].includes(username)) {
-      $(".heart").addClass("is-active");
-      document.getElementById("like").onclick = function () {
-        dislike();
-      };
-    }
-  };
-  xmlhttp.send(JSON.stringify(sendata));
+  if (localStorage.getItem("jwt_token")) {
+    document.getElementById("like").onclick = function () {
+      like();
+    };
 
+    var xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
+    var theUrl = "/user/getUser/";
+    var sendata = { fff: "ddd" };
+    xmlhttp.open("POST", theUrl);
+    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xmlhttp.setRequestHeader("x-auth-token", localStorage.getItem("jwt_token"));
+    xmlhttp.onload = function () {
+      // do something to response
+      console.log(this.responseText);
+      username = JSON.parse(xmlhttp.responseText)[0]["username"];
+      // alert("respone" + username + "=---" + doc_data["likes"]);
+      if (doc_data["likes"].includes(username)) {
+        $(".heart").addClass("is-active");
+        document.getElementById("like").onclick = function () {
+          dislike();
+        };
+      }
+    };
+    xmlhttp.send(JSON.stringify(sendata));
+  }else{
+    document.getElementById("like").onclick = function () {
+      window.location.href = "/login";
+    };
+    
+  }
   document.title = doc_data["title"].toUpperCase();
   $("#content_title").html(doc_data["title"]);
   $("#subheading").html(doc_data["subheading"]);
   $("#date").html(doc_data["date"].slice(0, 10));
-  document.getElementById("blogvisit").href = "/userBlog?username=" + doc_data["username"] ;
+  document.getElementById("blogvisit").href =
+    "/userBlog?username=" + doc_data["username"];
   $("#t_comments").html(doc_data["Comment"]);
   var tagarr = doc_data["tags"][0].split(",");
 
@@ -70,3 +78,5 @@ function setdatainbody(doc_data) {
   document.getElementById("load").style.display = "none";
   document.getElementById("mainContainer").style.display = "block";
 }
+
+document.getElementById("fbc").setAttribute("data-href" , "https://campusmentor.herokuapp.com/blog?id=" + get("id"))

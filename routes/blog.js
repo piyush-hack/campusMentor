@@ -90,22 +90,22 @@ router.route("/cmpiyush_visitors/:id").get(async (req, res) => {
   res.send(visitors);
 });
 
-router.route("/IdBlog/:id").get(auth, (req, res) => {
-  if (req.user.status != "approved") {
-    return res.send({
-      verifymailerr:
-        "Please approve your account first by Mail Verfication To Move Further",
-    });
-  }
+router.route("/IdBlog/:id").get( (req, res) => {
+  // if (req.user.status != "approved") {
+  //   return res.send({
+  //     verifymailerr:
+  //       "Please approve your account first by Mail Verfication To Move Further",
+  //   });
+  // }
 
-  BlogPost.update(
-    { _id: req.params.id },
-    { $addToSet: { visitors: req.user.username } },
-    (err, result) => {
-      if (err) return res.status(403).send(err);
-      return console.log(result);
-    }
-  );
+  // BlogPost.update(
+  //   { _id: req.params.id },
+  //   { $addToSet: { visitors: req.user.username } },
+  //   (err, result) => {
+  //     if (err) return res.status(403).send(err);
+  //     return console.log(result);
+  //   }
+  // );
 
   BlogPost.findOne({ _id: req.params.id }, (err, result) => {
     if (err) return res.status(403).send(err);
@@ -158,6 +158,13 @@ router.route("/delete/:id").delete(auth, (req, res) => {
 });
 
 router.route("/like/").post(auth, (req, res) => {
+
+  if (req.user.status != "approved") {
+    return res.send({
+      verifymailerr:
+        "Please approve your account first by Mail Verfication To Move Further",
+    });
+  }
   BlogPost.findOneAndUpdate(
     {_id :req.body.id}, {$addToSet : {'likes' : req.user.username}},
     (err, result) => {
@@ -172,6 +179,13 @@ router.route("/like/").post(auth, (req, res) => {
 });
 
 router.route("/dislike/").post(auth, (req, res) => {
+  if (req.user.status != "approved") {
+    return res.send({
+      verifymailerr:
+        "Please approve your account first by Mail Verfication To Move Further",
+    });
+  }
+
   BlogPost.findOneAndUpdate(
     {_id :req.body.id}, {$pull : {'likes' : req.user.username}},
     (err, result) => {
@@ -184,5 +198,6 @@ router.route("/dislike/").post(auth, (req, res) => {
     }
   );
 });
+
 
 module.exports = router;
