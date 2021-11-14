@@ -45,6 +45,7 @@ function profileres(data) {
     seti("fee" , data["fee"]["fees"]);
     seti("feetime" , data["fee"]["time"]);
     seti("feedesc" , data["fee"]["feedesc"])
+    seti("footerText", data["name"].split(" ")[0] + " " + lastname + " CV ")
 
 
 
