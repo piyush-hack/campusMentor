@@ -36,8 +36,13 @@ function post_re(url, data) {
     data =  JSON.parse(this.responseText);
     if(data[0]){
       alert( JSON.stringify(data[0].msg));
+    }else if(data.msg.keyValue){
+      alert( JSON.stringify(data.msg.keyValue) + " already Taken")
+    }else if(data.msg){
+      console.log(JSON.stringify(data["msg"]) , data.msg )
+      alert(JSON.stringify(data["msg"]) )
     }else{
-      alert( JSON.stringify(data.msg))
+      alert("Some Error Occured . try Again Later")
     }
     rresponse = this.responseText;
     registerd(this.responseText);
