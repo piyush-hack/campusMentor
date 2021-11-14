@@ -46,6 +46,7 @@ function profileres(data) {
     seti("feetime" , data["fee"]["time"]);
     seti("feedesc" , data["fee"]["feedesc"])
     seti("footerText", data["name"].split(" ")[0] + " " + lastname + " CV ")
+    document.getElementById("sendmess").href = "mailto:" + data["email"];
 
 
 
