@@ -11,6 +11,10 @@ function profileres(data) {
     data = data[0]
     console.log(data)
 
+    if(data == undefined){
+        window.location.href = "/create_teach_profile"
+    }
+
     let lastname = "";
 
     if(data["name"].split(" ")[1] == undefined){

@@ -1,4 +1,32 @@
+var postdata = { a: " " };
+postRequest(JSON.stringify(postdata), "/user/getUser/", (data) =>
+  console.log(myname(data))
+);
 
+function myname(userdata) {
+  // alert("userdata", userdata);
+  console.log("userdata", userdata);
+  if(userdata["message"] == 'jwt malformed'){
+    window.location.href = "/login"
+    return
+  }
+  if (userdata[0]["username"]) {
+    let lastname = "";
+
+    if(userdata[0]["username"].split(" ")[1] == undefined){
+        lastname = "";
+    }else{
+        lastname = userdata[0]["username"].split(" ")[1]
+    }
+
+    seti("username", `${userdata[0]["username"].split(" ")[0]} <span class="purple" id="lastname">${lastname}</span>`);
+  }else{
+  }
+}
+
+function seti(id , value){
+  document.getElementById(id).innerHTML = value;
+}
 
 $(document).ready(function () {
   $("input").attr("maxlength", "25");

@@ -96,7 +96,8 @@
 }
 
 .bl:before {
-  content: "";
+  /* content: ""; */
+  content: '✨';
 }
 
 .br:before {
