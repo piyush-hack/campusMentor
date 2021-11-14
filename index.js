@@ -44,6 +44,14 @@ app.get("/", (req, res) => {
   res.status(200).render("frontpage");
 });
 
+app.get("/myprofile", (req, res) => {
+  res.status(200).render("teach_profile");
+});
+
+app.get("/create_teach_profile", (req, res) => {
+  res.status(200).render("create_teach_profile");
+});
+
 app.get("/userBlog", (req, res) => {
   username = req.query.username;
   params = {"username" : username}
@@ -57,17 +65,13 @@ app.get("/login", async (req, res) => {
 const userrouter = require("./routes/user");
 const blogrouter = require("./routes/blog");
 const { param } = require("./routes/user");
-
-// const profilerouter = require('./routes/profile')
-// const sellerrouter = require('./routes/sellerprofile')
-// const product = require('./routes/product')
+const teachProfrouter = require("./routes/teachProfile");
 
 app.use("/user", userrouter);
 app.use("/blog", blogrouter);
+app.use("/teachProfile" , teachProfrouter);
 
-// app.use('/profile',profilerouter);
-// app.use('/sellerprofile',sellerrouter);
-// app.use('/products',product);
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

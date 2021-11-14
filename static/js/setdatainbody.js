@@ -27,11 +27,10 @@ function setdatainbody(doc_data) {
       }
     };
     xmlhttp.send(JSON.stringify(sendata));
-  }else{
+  } else {
     document.getElementById("like").onclick = function () {
       window.location.href = "/login";
     };
-    
   }
   document.title = doc_data["title"].toUpperCase();
   $("#content_title").html(doc_data["title"]);
@@ -79,4 +78,36 @@ function setdatainbody(doc_data) {
   document.getElementById("mainContainer").style.display = "block";
 }
 
-document.getElementById("fbc").setAttribute("data-href" , "https://campusmentor.herokuapp.com/blog?id=" + get("id"))
+// window.onload = function () {
+//   setTimeout(function () {
+//     var fbframe =
+//       document.getElementsByTagName("iframe")[
+//         document.getElementsByTagName("iframe").length - 2
+//       ];
+
+//     console.log(fbframe);
+//     try {
+//       fbframe.setAttribute("id", "fbframe");
+//     } catch (error) {
+//       console.log("err", error);
+//     }
+
+//     setTimeout(function () {
+//       try {
+//         let myiFrame = document.getElementById("fbframe");
+//         let doc = myiFrame.contentDocument;
+//         let doc2 = (myiFrame.contentWindow || myiFrame.contentDocument);
+//         // if (doc2.document){
+//         //   doc2 = doc2.document;
+//         // }
+//         console.log(doc , doc2);
+//         doc2.body.style.backgroundColor = "red";
+//         doc2.body.innerHTML =
+//         doc2.body.innerHTML +
+//           "<style>/******* Put your styles here *******</style>";
+//       } catch (error) {
+//         console.log("append err", error);
+//       }
+//     }, 2000);
+//   }, 2000);
+// };

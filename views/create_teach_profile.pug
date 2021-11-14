@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic' rel='stylesheet' type='text/css'>    <link rel="stylesheet" href="../static/css/teach_profile.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../static/css/addbtn.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="main_container">
+        <!-- HEADER -->
+        <div id="header">
+          <!-- LOGOTYPE/NAME -->
+          <div class="header_logotype_container">
+            <h1 class="logotype_name">Javier <span class="purple">Latorre</span></h1>
+            <h2 class="logotype_occupation"><input type="text" id="position" placeholder=" Position"></h2>
+          </div>
+          <!-- MAIN MENU -->
+          <div class="header_menu_container">
+            <ul class="download_print_buttons horizontal_list">
+              <li><a href="#"><span class="icon entypo-download"></span>Download CV</a></li>
+              <li><a href="#"><span class="icon entypo-print"></span>Print CV</a></li>
+            </ul>
+            <div class="clear"></div>
+            <ul class="header_menu horizontal_list">
+              <li><a class="no_border purple" href="#">Profile</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#experience">Work Experience</a></li>
+              <li><a href="#projects">Featured Projects</a></li>
+              <li><a href="#fee">Fee</a></li>
+            </ul>
+          </div>
+
+          <div class="add-button">
+            <div class="sub-button tl"></div>
+            <div class="sub-button tr"></div>
+            <div class="sub-button bl"></div>
+            <div class="sub-button br"></div>
+          </div>
+        </div>
+        <!-- LEFT COL -->
+        <div id="left_col">
+          <div class="profile_frame">
+            <div class="profile_picture"></div>
+          </div>
+          <div class="hello_content">
+            <h2>Hello!</h2>
+            <p><textarea maxlength="200" name="" id="intro" cols="30" rows="8" placeholder="I'm passionate about technology and human behavior, hardworker and a fast-learner with experience in around 10 different countries studying, working and volunteering."></textarea> Limit To 200 Characters</p>
+          </div>
+          <div class="contact_details_content">
+            <h2>Contact details</h2>
+            <p class="purple">Phone:</p>
+            <p>+91 <input type="number" id="phone"></p>
+            <p class="purple">Email:</p>
+            <p><input type="email" id="email"></p>
+            <p class="purple">Adress:</p>
+            <p><input type="address" placeholder="Address" id="address"></p>
+            <p><input type="address" placeholder="City/Towm" id="city"> India</p>
+            <p><input type="number" max="6" placeholder="POSTAL CODE" id="postalcode"></p>
+          </div>
+          <a class="send_message_button">
+            <span class="cut1"></span>
+            <span class="cut2"></span>
+            <span class="content">Send me a message <span class="fontawesome-double-angle-right"></span></span>
+          </a>
+          <div class="get_social_content">
+            <h2>Get social</h2>
+            <ul class="social_icons horizontal_list">
+              <li><a class="facebook" href="https://www.facebook.com/jlalovi"><span class="entypo-facebook-circled"></span><span class="invisible">Facebook</span></a></li>
+              <li><a class="twitter" href="https://twitter.com/jlalovi"><span class="entypo-twitter-circled"></span><span class="invisible">Twitter</span></a></li>
+              <li><a class="linkedin" href="https://www.linkedin.com/in/jlalovi/en"><span class="entypo-linkedin-circled"></span><span class="invisible">LinkedIn</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- PROFILE CONTENT -->
+        <div id="content_container">				
+          <div class="block">
+            <h1>Profile</h1>
+            <blockquote class="profile_quote">
+              <p>" <textarea name="" maxlength="400" id="quote" cols="70" rows="6" placeholder="Add A Quote"></textarea> "</p>
+              <p><input type="text" id="quoteby" placeholder="Quote By"></p>
+              <span class="entypo-quote"></span>
+            </blockquote>
+          </div>
+          <div class="block">
+            <h2>A few words about me</h2>
+            <p> <textarea name="" id="about" maxlength="400" cols="80" rows="6" placeholder="Until now, in my life, I change from active moments with a lot of variety, challenges and improvisations, to moments of tranquility and stability, being difficult to stay in a place during a long time. I consider myself a tolerant and respectful person with open mind and quite honest. I really like to listen people stories and backgrounds and their different experiences around the world."></textarea></p>				
+          </div>
+          <div class="horizontal_line">
+            <div class="line_left"></div>
+            <div class="left_circle"></div>
+            <div class="central_circle"></div>
+            <div class="right_circle"></div>
+            <div class="line_right"></div>
+          </div>
+          <div class="block">
+            <h2>Teaching Methodology</h2>
+            <p> <textarea maxlength="100" name="" id="belief" cols="80" rows="2" placeholder="I belive in ethic and moral not in imposed rules that you have to do or follow."></textarea> </p>
+            <div class="philosophy_content">
+              <p><textarea name="" id="methodcontent" cols="50" rows="8" placeholder="I believe life is made from different shades of grey, not from black and white. Furthermore, as a human being with rationality, I think it is our duty to take care of the world and treat others as one would like others to treat oneself. This way of perceiving reality affects my beliefs and my way of behaving. Summarizing on several points:"></textarea></p>
+              <ul id="list">
+                <a onclick="addli('list' , 'beliefs')" class="button2" target="_blank" rel="noopener">
+                    | ADD MORE
+                </a>
+                <br>
+                <br>
+                <li>
+                    <input type="text" class="beliefs" >
+                </li> 
+              </ul>
+              <div class="clear"></div>
+            </div>
+          </div>
+          <div class="horizontal_line">
+            <div class="line_left"></div>
+            <div class="left_circle"></div>
+            <div class="central_circle"></div>
+            <div class="right_circle"></div>
+            <div class="line_right"></div>
+          </div>    
+          <div class="block">
+            <h2>Eager To Teach</h2>
+            <p>I'm passionate about technology and human behavior, both determine almost all my interests and hobbies:</p>
+            <ul id="teachsubjects">
+              <a onclick="addli('teachsubjects' , 'teachsubjects')" class="button2" target="_blank" rel="noopener">
+                | ADD MORE
+              </a>
+              <br><br>
+              <li><input type="text" class="teachsubjects" placeholder="Node js"></li>
+            </ul>
+          </div>
+          <div class="horizontal_line">
+            <div class="line_left"></div>
+            <div class="left_circle"></div>
+            <div class="central_circle"></div>
+            <div class="right_circle"></div>
+            <div class="line_right"></div>
+          </div>
+          <div class="last block">
+            <div class="details">
+                <div class="section" id="experience">
+                  <div class="section__title">Work Experience</div>
+                  <ul class="section__list" id="explist">
+                    <br>
+                    <a onclick="addexpli('explist' , 'exp')" class="button2" target="_blank" rel="noopener">
+                        | ADD MORE
+                    </a>
+
+                    <br><br>
+                    <li class="section__list-item exp">
+                      <div class="left">
+                        <div class="name"><input type="text" placeholder="NAME" class="iname"></div>
+                        <div class="addr"><input type="text" placeholder="ADDRESS" class="iaddress"></div>
+                        <div class="duration"><input type="text" placeholder="Jan 2011 - Feb 2015" class="iduration"></div>
+                      </div>
+                      <div class="right">
+                        <div class="name"><input type="text" placeholder="NAME" class="iname"></div>
+                        <div class="addr"><input type="text" placeholder="ADDRESS" class="iaddress"></div>
+                        <div class="duration"><input type="text" placeholder="Jan 2011 - Feb 2015" class="iduration"></div>
+                      </div>
+                    </li>
+            
+                  </ul>
+                </div>
+                <div class="horizontal_line">
+                    <div class="line_left"></div>
+                    <div class="left_circle"></div>
+                    <div class="central_circle"></div>
+                    <div class="right_circle"></div>
+                    <div class="line_right" style="width: 200px;"></div>
+                </div>
+                <div class="section" id="education">
+                  <div class="section__title">Education</div>
+
+                  <ul class="section__list" id="edulist">
+                    <br>
+                    <a onclick="addexpli('edulist' , 'edu')" class="button2" target="_blank" rel="noopener">
+                        | ADD MORE
+                    </a>
+  
+                    <br><br>
+                    <li class="section__list-item edu">
+                      <div class="left">
+                        <div class="name"><input type="text" placeholder="NAME" class="iname"></div>
+                        <div class="addr"><input type="text" placeholder="ADDRESS" class="iaddress"></div>
+                        <div class="duration"><input type="text" placeholder="Jan 2011 - Feb 2015" class="iduration"></div>
+                      </div>
+                      <div class="right">
+                        <div class="name"><input type="text" placeholder="NAME" class="iname"></div>
+                        <div class="addr"><input type="text" placeholder="ADDRESS" class="iaddress"></div>
+                        <div class="duration"><input type="text" placeholder="Jan 2011 - Feb 2015" class="iduration"></div>
+                      </div>
+                    </li>
+            
+                  </ul>
+                </div>
+                <div class="horizontal_line">
+                    <div class="line_left"></div>
+                    <div class="left_circle"></div>
+                    <div class="central_circle"></div>
+                    <div class="right_circle"></div>
+                    <div class="line_right" style="width: 200px;"></div>
+                </div>
+                <div class="section" id="projects">
+                  <div class="section__title">Projects</div> 
+                  <ul class="section__list" id="prolist">
+                    <br>
+                    <a onclick="addeproli('prolist' , 'pro')" class="button2" target="_blank" rel="noopener">
+                        | ADD MORE
+                    </a>
+  
+                    <br><br>
+                     <li class="section__list-item pro">
+                       <div class="name"><input type="text" placeholder="TITLE" style="font-weight: bold;" maxlength="20" class="iname"></div>
+                       <div class="text"><textarea name="" cols="80" rows="4" maxlength="250" placeholder="Project Description" class="itext"></textarea></div>
+                     </li>
+                  </ul>
+                </div>
+                <div class="horizontal_line">
+                    <div class="line_left"></div>
+                    <div class="left_circle"></div>
+                    <div class="central_circle"></div>
+                    <div class="right_circle"></div>
+                    <div class="line_right" style="width: 200px;"></div>
+                </div>
+                <div class="section" id="skills">
+                    <div class="section__title">Skills</div>
+                    <br>
+                    <a onclick="addskilli('skills')" class="button2" target="_blank" rel="noopener">
+                        | ADD MORE
+                    </a>
+  
+                    <br><br>
+                    <div class="skills" id="skills">
+                        <div class="skills__item skill">
+                            <div class="left">
+                                <div class="name"><input type="text" class="skillname" placeholder="Nodejs"><input type="number" max="5" class="skillscore" onkeyup="if(this.value > 5){ this.value = null; alert('Score Out Of 5 Only')}" placeholder="Rate Skills From 5"></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                
+                </div>
+                <div class="horizontal_line">
+                    <div class="line_left"></div>
+                    <div class="left_circle"></div>
+                    <div class="central_circle"></div>
+                    <div class="right_circle"></div>
+                    <div class="line_right" style="width: 200px;"></div>
+                </div>
+                <div class="section" id="fee">
+                    <div class="section__title">
+                        | Fee
+                    </div>
+                    <div class="section__list">
+                        <div class="section__list-item">
+                            | ₹ <input type="number" id="fees"> /   
+                            <select name="cars" id="feetime" >
+                                <option value="hour">Hour</option>
+                                <option value="day">Day</option>
+                                <option value="month">Month</option>
+                            </select>
+                            <br><br>
+                            <textarea name="" id="feedesc" cols="80" rows="7" maxlength="500" placeholder="Fee Description About How You Charge And Other Fee Related Details "></textarea>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="horizontal_line">
+                    <div class="line_left"></div>
+                    <div class="left_circle"></div>
+                    <div class="central_circle"></div>
+                    <div class="right_circle"></div>
+                    <div class="line_right" style="width: 200px;"></div>
+                </div>
+            </div>
+            <a class="send_message_button" style="float: right;" onclick="submitform()">
+              <span class="cut1"></span>
+              <span class="cut2"></span>
+              <span class="content">SUBMIT <span class="fontawesome-double-angle-right"></span></span>
+            </a>
+          </div>
+          
+        </div>
+
+        <div class="clear"></div>
+        <!-- FOOTER -->
+        <div id="footer">
+          <p class="footer_name">Javier Latorre CV 2015</p>
+        </div>
+
+
+  </div>
+
+    <script src="../static/js/getUserByJWT.js"></script>
+    <script src="../static/js/create_teach.js"></script>
+  </body>
+</html>
