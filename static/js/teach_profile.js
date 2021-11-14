@@ -1,5 +1,3 @@
-
-
 let teachername = get("tn");
 
 getRequest(`/teachProfile/teachProf/${teachername}`, (data) =>
@@ -7,70 +5,71 @@ getRequest(`/teachProfile/teachProf/${teachername}`, (data) =>
 );
 
 function profileres(data) {
+  data = data[0];
+  console.log(data);
 
-    data = data[0]
-    console.log(data)
+  if (data == undefined) {
+    window.location.href = "/create_teach_profile";
+  }
 
-    if(data == undefined){
-        window.location.href = "/create_teach_profile"
-    }
+  let lastname = "";
 
-    let lastname = "";
+  if (data["name"].split(" ")[1] == undefined) {
+    lastname = "";
+  } else {
+    lastname = data["name"].split(" ")[1];
+  }
 
-    if(data["name"].split(" ")[1] == undefined){
-        lastname = "";
-    }else{
-        lastname = data["name"].split(" ")[1]
-    }
-
-    seti("username", `${data["name"].split(" ")[0]} <span class="purple" id="lastname">${lastname}</span>`);
-    seti("position", data["position"]);
-    seti("intro" , data["intro"]);
-    seti("phone" , data["phone"]);
-    seti("email" , data["email"]);
-    seti("addr" , data["address"]);
-    seti("city" , data["city"] + " , India");
-    seti("pcode" , data["postalcode"]);
-    seti("quote", ` "${data["quote"]}" `);
-    seti("quoteby" , data["quoteby"]);
-    seti("about" , data["about"]);
-    seti("belief" , data["belief"]);
-    seti("methodcontent" , data["methodcontent"]);
-    cli("list" , data["list"]);
-    cli("teachsubjects" , data["teachsubjects"])
-    cli("explist" , data["explist"])
-    cli("edulist" , data["edulist"]);
-    cli("prolist" , data["prolist"])
-    cli("skills" , data["skills"])
-    seti("fee" , data["fee"]["fees"]);
-    seti("feetime" , data["fee"]["time"]);
-    seti("feedesc" , data["fee"]["feedesc"])
-    seti("footerText", data["name"].split(" ")[0] + " " + lastname + " CV ")
-    document.getElementById("sendmess").href = "mailto:" + data["email"];
-
-
-
-    
+  seti(
+    "username",
+    `${
+      data["name"].split(" ")[0]
+    } <span class="purple" id="lastname">${lastname}</span>`
+  );
+  seti("position", data["position"]);
+  document.getElementById("profile_picture").style.background =
+    "url(" + data["profileimg"] + ") no-repeat";
+  document.getElementById("profile_picture").style.backgroundSize = "cover";
+  seti("intro", data["intro"]);
+  seti("phone", data["phone"]);
+  seti("email", data["email"]);
+  seti("addr", data["address"]);
+  seti("city", data["city"] + " , India");
+  seti("pcode", data["postalcode"]);
+  seti("quote", ` "${data["quote"]}" `);
+  seti("quoteby", data["quoteby"]);
+  seti("about", data["about"]);
+  seti("belief", data["belief"]);
+  seti("methodcontent", data["methodcontent"]);
+  cli("list", data["list"]);
+  cli("teachsubjects", data["teachsubjects"]);
+  cli("explist", data["explist"]);
+  cli("edulist", data["edulist"]);
+  cli("prolist", data["prolist"]);
+  cli("skills", data["skills"]);
+  seti("fee", data["fee"]["fees"]);
+  seti("feetime", data["fee"]["time"]);
+  seti("feedesc", data["fee"]["feedesc"]);
+  seti("footerText", data["name"].split(" ")[0] + " " + lastname + " CV ");
+  document.getElementById("sendmess").href = "mailto:" + data["email"];
 }
 
-function cli(id ,lidata){
-
-    if(id == "list" || id == "teachsubjects"){
-        let ulcontent = "";
-        for (const key in lidata) {
-            if (lidata[key].trim() == "" ) {
-                continue;
-            }
-            ulcontent+= `<li>${lidata[key]}</li>`;
-        }
-        seti(id , ulcontent);
+function cli(id, lidata) {
+  if (id == "list" || id == "teachsubjects") {
+    let ulcontent = "";
+    for (const key in lidata) {
+      if (lidata[key].trim() == "") {
+        continue;
+      }
+      ulcontent += `<li>${lidata[key]}</li>`;
     }
+    seti(id, ulcontent);
+  }
 
-
-    if(id == "explist" || id == "edulist"){
-        let ulcontent = "";
-        for (const key in lidata) {  
-                    ulcontent+= `                    
+  if (id == "explist" || id == "edulist") {
+    let ulcontent = "";
+    for (const key in lidata) {
+      ulcontent += `                    
                     <li class="section__list-item exp">
                         <div class="left">
                         <div class="name">${lidata[key]["left"]["name"]}</div>
@@ -82,35 +81,33 @@ function cli(id ,lidata){
                         <div class="addr">${lidata[key]["right"]["address"]}</div>
                         <div class="duration">${lidata[key]["right"]["duration"]}<div>
                         </div>
-                    </li>`
-        }
-        seti(id , ulcontent);
+                    </li>`;
     }
+    seti(id, ulcontent);
+  }
 
-    if(id == "prolist"){
-        let ulcontent = "";
-        for (const key in lidata) {  
-                    ulcontent+= `                    
+  if (id == "prolist") {
+    let ulcontent = "";
+    for (const key in lidata) {
+      ulcontent += `                    
                     <li class="section__list-item pro">
                        <div class="name">${lidata[key]["name"]}</div>
                        <div class="text">${lidata[key]["text"]}</div>
-                     </li>`
-        }
-        seti(id , ulcontent);
+                     </li>`;
     }
+    seti(id, ulcontent);
+  }
 
-    if( id == "skills"){
-        let ulcontent = "";
+  if (id == "skills") {
+    let ulcontent = "";
 
+    for (const key in lidata) {
+      let element = ["", "", "", "", ""];
+      for (let i = 0; i < lidata[key]["level"]; i++) {
+        element[i] = "checked";
+      }
 
-        for (const key in lidata) {  
-
-            let element = ["","","","",""];
-            for (let i = 0; i < lidata[key]["level"]; i++) {
-               element[i] = "checked"
-            }
-
-                    ulcontent+= `                    
+      ulcontent += `                    
                     <div class="skills__item">
                             <div class="left">
                                 <div class="name">
@@ -133,20 +130,15 @@ function cli(id ,lidata){
                                 <label for="ck5"></label>
                 
                             </div>
-                        </div>`
-        }
-        seti(id , ulcontent);
+                        </div>`;
     }
-
-
-
+    seti(id, ulcontent);
+  }
 }
 
-function seti(id , value){
-    document.getElementById(id).innerHTML = value;
+function seti(id, value) {
+  document.getElementById(id).innerHTML = value;
 }
-
-
 
 function get(name) {
   if (
@@ -158,15 +150,14 @@ function get(name) {
 }
 
 function downloadimage() {
-    //var container = document.getElementById("image-wrap"); //specific element on page
-    var container = document.getElementById("main_container");; // full page 
-    html2canvas(container, { allowTaint: true }).then(function (canvas) {
-
-        var link = document.createElement("a");
-        document.body.appendChild(link);
-        link.download = "html_image.jpg";
-        link.href = canvas.toDataURL();
-        link.target = '_blank';
-        link.click();
-    });
+  //var container = document.getElementById("image-wrap"); //specific element on page
+  var container = document.getElementById("main_container"); // full page
+  html2canvas(container, { allowTaint: true }).then(function (canvas) {
+    var link = document.createElement("a");
+    document.body.appendChild(link);
+    link.download = "html_image.jpg";
+    link.href = canvas.toDataURL();
+    link.target = "_blank";
+    link.click();
+  });
 }

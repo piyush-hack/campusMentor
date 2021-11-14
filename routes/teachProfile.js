@@ -28,4 +28,12 @@ router.route("/teachProf/:username").get((req, res) => {
   });
 });
 
+
+router.route("/getAllProfiles").get((req, res) => {
+  teachProfile.find({}, (err, result) => {
+    if (err) return res.json(err);
+    return res.json({ data: result });
+  });
+});
+
 module.exports = router;

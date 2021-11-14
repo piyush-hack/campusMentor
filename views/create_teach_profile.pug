@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic' rel='stylesheet' type='text/css'>    <link rel="stylesheet" href="../static/css/teach_profile.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic' rel='stylesheet' type='text/css'>   
+    <link rel="stylesheet" href="../static/css/teach_profile.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../static/css/addbtn.css">
     <title>Document</title>
@@ -44,8 +45,8 @@
         </div>
         <!-- LEFT COL -->
         <div id="left_col">
-          <div class="profile_frame">
-            <div class="profile_picture"></div>
+          <div class="profile_frame" id="profile_picture">
+            <textarea name="" id="profimgsrc" cols="28" rows="2" oninput="document.getElementById('profile_picture').style.background = 'url(' + this.value + ') no-repeat'; document.getElementById('profile_picture').style.backgroundSize = 'cover'" placeholder="PROVIDE IMG URL AND GET PREVIEW BELOW" ></textarea>
           </div>
           <div class="hello_content">
             <h2>Hello!</h2>

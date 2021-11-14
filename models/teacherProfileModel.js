@@ -40,6 +40,7 @@ const TeacherProfile = Schema({
   prolist: { type: Object, required: true },
   skills: { type: Object, required: true },
   fee: { type: Object , required: true},
+  rating : { type : Number , "default" : 4},
 });
 
 module.exports = mongoose.model("TeacherProfile", TeacherProfile);

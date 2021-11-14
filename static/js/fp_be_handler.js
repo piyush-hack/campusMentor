@@ -67,3 +67,64 @@ function mycard(cardData) {
     settilt();
   }
 }
+
+getRequest("/teachProfile/getAllProfiles/", (data) => console.log(myteachcards(data)));
+
+function myteachcards(data){
+  console.log("teachdata" , data)
+  if(data){
+    var allteachcards = document.getElementById("allteachcards");
+
+    allteachcards.innerHTML = "";
+
+
+    for(x in data["data"]){
+
+      rating = ["","","","",""];
+
+      for (let i = 5; i > data["data"][x]["rating"]; i--) {
+        rating[i-1] = "grey";
+        
+      }
+
+      console.log(data["data"])
+      allteachcards.innerHTML += `
+        <div class="teach_card">
+          <div class="img_section">
+            <a href="/myprofile?tn=${data["data"][x]["name"]}">
+              <img src="${data["data"][x]["profileimg"]}" alt="" srcset="">
+            </a>
+            <ul class="teach_options">
+              <li>
+                <i class="fa fa-eye" aria-hidden="true"></i>
+                <span>${data["data"][x]["fee"]["feedesc"]}</span>
+              </li>
+              <li>
+                <i class="fa fa-address-book" aria-hidden="true"></i>
+                <span>${data["data"][x]["phone"]} , ${data["data"][x]["email"]}</span>
+              </li>
+              <li>
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <span>${data["data"][x]["name"]} <br> ${data["data"][x]["position"]} </span>
+              </li>
+            </ul>
+          </div>
+          <div class="details">
+            <div class="fee">
+              | ₹ ${data["data"][x]["fee"]["fees"]} / ${data["data"][x]["fee"]["time"]}
+            </div>
+            <div class="rating">
+              <i class="fa fa-star ${rating[0]}" aria-hidden="true"></i>
+              <i class="fa fa-star  ${rating[1]}" aria-hidden="true"></i>
+              <i class="fa fa-star  ${rating[2]}" aria-hidden="true"></i>
+              <i class="fa fa-star  ${rating[3]}" aria-hidden="true"></i>
+              <i class="fa fa-star  ${rating[4]}" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  }
+}
+
+

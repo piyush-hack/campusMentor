@@ -29,7 +29,7 @@ function seti(id , value){
 }
 
 $(document).ready(function () {
-  $("input").attr("maxlength", "25");
+  $("input").attr("maxlength", "60");
 });
 
 var add = document.getElementById("addElem");
@@ -98,6 +98,7 @@ function addskilli(listid) {
 
 async function submitform() {
   let position = vli("position");
+  let imgsrc = vli("profimgsrc");
   let intro = vli("intro");
   let phone = vli("phone");
   let email = vli("email");
@@ -152,6 +153,7 @@ async function submitform() {
 
   data = {
     position: position,
+    profileimg : imgsrc,
     intro: intro,
     phone: phone,
     email: email,

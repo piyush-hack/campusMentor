@@ -97,12 +97,13 @@
 
 .bl:before {
   /* content: ""; */
-  content: '✨';
+
+  content: '👩‍🏫';
 }
 
 .br:before {
   /* content: ""; */
-  content: '👩‍🏫';
+  content: '✨';
 }
 
 .add-button:hover .sub-button {
