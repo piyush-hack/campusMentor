@@ -20,3 +20,8 @@ select {
   padding: 5px;
   border-radius: 5px;
 }
+
+img,
+iframe {
+  max-width: 100%;
+}

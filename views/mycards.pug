@@ -11,12 +11,21 @@
 
     <link rel="stylesheet" href="../static/css/mycard.css" />
     <link rel="stylesheet" href="../static/css/loader.css">
+    link(rel="stylesheet", href="static/css/addbtn.css")
+
     <title>Document</title>
     <style>.mycards:before { top: 0vh; } .mycards:after {top: 0vh; } .mycard_heading {top: 0vh; }
 
     </style>
 </head>
 <body>
+
+    <div class="add-button">
+      <a href="/create_teach_profile"><div class="sub-button tl"></div></a>
+      <a id="myallblogs" href="/userBlog?username=#{username}"><div class="sub-button tr"></div></a>
+      <a id="teachprofile" ><div class="sub-button bl"></div></a>
+      <a href="/blog-create"><div class="sub-button br"></div></a>
+    </div>
     <section class="mycards">
         <br>
         <h2 class="mycard_heading">
