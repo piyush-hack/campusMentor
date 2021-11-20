@@ -1,5 +1,5 @@
-if(!localStorage.getItem("jwt_token")){
-  alert("Plz Login First")
+if (!localStorage.getItem("jwt_token")) {
+  alert("Plz Login First");
   window.location.href = "/login";
 }
 
@@ -34,16 +34,27 @@ function getDataFromTheEditor() {
   return theEditor.getData();
 }
 
-setTimeout(function () {
-  document.getElementsByClassName(
-    "ck-rounded-corners ck-editor__editable_inline"
-  )[0].style.minHeight = "500px";
-  document.getElementsByClassName(
-    "ck-rounded-corners ck-editor__editable_inline"
-  )[0].onclick = function () {
-    addclass();
-  };
+function ondrive() {
+  theEditor.data.set(
+    theEditor.getData() +
+      `&lt;cmiframe src='${
+        document.getElementById("uploadlink").value
+      }'  width="640" height="480" allow="autoplay" cmiframe&gt;`
+  );
 
+  var html = document.getElementById("prevUploads").innerHTML;
+  console.log(html);
+  if (html.includes(document.getElementById("uploadlink").value) == false) {
+    console.log(html, html.search(document.getElementById("uploadlink").value));
+    document.getElementById("prevUploads").innerHTML += `<li> ${
+      document.getElementById("uploadlink").value
+    } </li>`;
+  }
+
+  console.log();
+}
+
+setTimeout(function () {
   document
     .getElementsByClassName("ck-editor__editable_inline")[0]
     .setAttribute("spellcheck", "false");
@@ -55,16 +66,16 @@ setTimeout(function () {
     "theorytag"
   )[0].innerHTML += `&nbsp;&nbsp <span data-container="body" data-toggle="popover" data-placement="top"
    title="<h3>How To Insert Image And Iframe </h3>" data-html="true"
-   data-content=" <b>Img</b> : To insert Img Just Copy And Paste Img or use campus_mentor custome tag 'cmimg' as <br> <b><xmt>◀cmimg src='imgsrc_here' cmimg▶</xmt></b> 
+   data-content=" <b>Img</b> : To insert Image Just Copy And Paste Image or use campus_mentor custom tag 'cmimg' as <br> <b><xmt>◀cmimg src='imgsrc_here' cmimg▶</xmt></b> 
    <br><br>
-   <b>Iframe</b> : Use custome campus_mentor custome tag <br> <b>◀cmiframe src='src_here' cmiframe▶</b>
+   <b>Iframe</b> : Use campus_mentor custom tag <br> <b>◀cmiframe src='src_here' cmiframe▶</b>
    <br><br>
    <b>Inside these tags you can use any property of img and iframe tag of html</b>"
    >
    <i class="fa fa-info-circle" aria-hidden="true"></i></span>`;
   $(function () {
-    $('[data-toggle="popover"]').popover()
-  })
+    $('[data-toggle="popover"]').popover();
+  });
 }, 1000);
 
 function addclass() {
@@ -122,3 +133,27 @@ function changeTagsInblog(blog) {
 
   return blog;
 }
+
+function hidebanner() {
+  var timer = setInterval(() => {
+    if (document.getElementsByClassName("goog-te-banner-frame")) {
+      document.getElementsByClassName("goog-te-banner-frame")[0].style.display =
+        "none";
+      clearInterval(timer);
+    }
+  }, 2000);
+}
+
+var tries = 0;
+var timer = setInterval(() => {
+  if (document.getElementsByClassName("goog-te-banner-frame") || tries >= 100) {
+    clearInterval(timer);
+    document.getElementsByClassName("goog-te-banner-frame")[0].style.display =
+      "none";
+
+    clearInterval(timer);
+  }
+  tries++;
+}, 1000);
+
+

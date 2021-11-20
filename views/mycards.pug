@@ -18,7 +18,10 @@
 </head>
 <body>
     <section class="mycards">
-        <h2 class="mycard_heading">BLOGS BY #{username}</h2>
+        <br>
+        <h2 class="mycard_heading">
+          <div id="google_translate_element" onclick="hidebanner()"></div>
+          | BLOGS BY #{username}</h2>
         <br><br><br>
 
         <div class="container" id="blogCards">
@@ -45,5 +48,10 @@
     <script src="../static/js/getUserByJWT.js"></script>
 
     <script src="../static/js/getUserBlogs.js"></script>
+    <script type="text/javascript">function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en'},'google_translate_element');}
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
 </body>
 </html>

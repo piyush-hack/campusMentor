@@ -13,8 +13,8 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+    //- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    //- <link rel="stylesheet" href="http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
     <link rel="stylesheet" href="../static/css/code.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,13 +36,15 @@
 </head>
 
 <body style="padding:10vw">
+    <div id="google_translate_element" onclick="hidebanner()">
+    </div>
     <h1>Create your blog</h1>
     <br><br>
     <form method="POST" action="/blog/Add" id="my_form" name="Form">
-        <label class="h3">Image Referring to your blog : </label>
-        <br>
-        <input type="text" id="coverImage" class="form-control" name="coverImage" required placeholder="ex : https://miro.medium.com/max/4096/1*Y1hq9sHXG26Fyhys81z8rg.png" />
-        <br>
+        //- <label class="h3">Image Referring to your blog : </label>
+        //- <br>
+        <input type="hidden" id="coverImage" class="form-control" value="https://miro.medium.com/max/4096/1*Y1hq9sHXG26Fyhys81z8rg.png" name="coverImage" required placeholder="ex : https://miro.medium.com/max/4096/1*Y1hq9sHXG26Fyhys81z8rg.png" />
+        //- <br>
         <label class="h3">Topic :</label>
         <input type="text" id="title" name="title" class="form-control" placeholder="ex : Learn php " required />
         <br>
@@ -54,12 +56,50 @@
         <br>
         <label class="h3 theorytag">Theory</label>
         <br>
+        <button type="button" class="ta btn " data-toggle="modal" data-target="#myModal">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/upload--v1.png" />
+        </button>
         <textarea name="contentDetails" id="contentDetails" rows="40" cols="80">
         </textarea>
         <br><br>
+               
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog" style="margin-top: 100 px;">
+                <div class="modal-content">
+
+                  
+                    <div class="modal-header">
+                        <h4 class="modal-title">Upload File</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                   
+                    <div class="modal-body">
+                        <p>To Upload File <br>
+                            | Click On Browse - Select The File - Click Upload -
+                            | Copy Generated Link Paste It In Input Box Below -  Press " Insert "
+                        </p>
+                        <iframe id="uploadframe" src="https://script.google.com/macros/s/AKfycbwGqgLQJ5jCvgxYdAlSDekFy7X9i7iWksPE9BdL1YT3IDleH6ylLwuffw1vN2cOHaPS/exec" frameborder="0" style="position: relative; height: 100%; width: 100%;">
+                        </iframe>
+                        <hr>
+                        <input type="text" name="" id="uploadlink" placeholder="Paste Link Here">
+                        <ul id="prevUploads">
+                            
+                        </ul>
+                    </div>
+
+                  
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="ondrive()">Insert</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
         //- <button id="printinconsole" type="button">PRINT</button>
-        <h3><button type="button" class="btn btn-outline-success" onclick="showsub()">ENABLE SUBMIT BTN</button></h3>
+        <h3><button type="button" class="btn btn-outline-success" onclick="showsub()">ENABLE SUBMIT BUTTON</button></h3>
         <br>
         <div id="my-theory" name="body"></div>
         <br>
@@ -68,13 +108,11 @@
 
     <script src="../static/js/blog-create.js"></script>
     <script src="../static/js/saveblog.js"></script>
-
-    <script>
-        
-
+    <script type="text/javascript">function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en'},'google_translate_element');}
     </script>
 
-
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
 
 
 </body>

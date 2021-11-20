@@ -1,0 +1,22 @@
+.ta {
+  background-color: white;
+  position: absolute;
+  margin-left: -50px;
+}
+
+#myModal {
+  min-width: 80vw;
+}
+
+#uploadlink {
+  width: 100%;
+}
+
+.modal-body {
+  overflow-x: scroll;
+}
+select {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+}

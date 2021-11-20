@@ -29,3 +29,35 @@ function getRequest(url, callback) {
 
   xhttp.send();
 }
+
+function hidebanner() {
+  var timer = setInterval(() => {
+    if (document.getElementsByClassName("goog-te-banner-frame")) {
+      document.getElementsByClassName("goog-te-banner-frame")[0].style.display =
+        "none";
+
+      clearInterval(timer);
+    }
+  }, 2000);
+}
+
+var tries = 0;
+var timer = setInterval(() => {
+  if (document.getElementsByClassName("goog-te-banner-frame")[0]) {
+    document.getElementsByClassName("goog-te-banner-frame")[0].style.display =
+      "none";
+    // clearInterval(timer);
+  }
+  tries++;
+}, 1000);
+
+var tries2 = 0;
+var timer2 = setInterval(() => {
+  if (document.getElementsByTagName("body")[0].style.position || tries2 >= 100) {
+    clearInterval(timer);
+    document.getElementsByTagName("body")[0].style.position = null;
+    console.log(document.getElementsByTagName("body")[0].style.position);
+    clearInterval(timer);
+  }
+  tries2++;
+}, 1000);
