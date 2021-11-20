@@ -92,7 +92,7 @@
 }
 
 .tr:before {
-  content: "";
+  content: "📚";
 }
 
 .bl:before {
@@ -103,7 +103,7 @@
 
 .br:before {
   /* content: ""; */
-  content: '✨';
+  content: '✐';
 }
 
 .add-button:hover .sub-button {

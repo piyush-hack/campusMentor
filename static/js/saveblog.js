@@ -43,7 +43,7 @@ function validateForm() {
     d == null || d == "",
     e == null || e == "" || e.length < 200)
   ) {
-    alert("Please Fill All Required Field With Required Conditions");
+    alert("Please Fill All Required Field With Required Conditions"+a+b+c+d+e);
     return false;
   }
 }
