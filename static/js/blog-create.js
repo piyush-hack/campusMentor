@@ -40,7 +40,7 @@ function ondrive() {
     theEditor.getData() +
       `&lt;cmiframe src='${
         document.getElementById("uploadlink").value
-      }'  width="640" height="480" allow="autoplay" cmiframe&gt;`
+      }' allow="autoplay" cmiframe&gt;`
   );
 
   var html = document.getElementById("prevUploads").innerHTML;
