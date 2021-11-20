@@ -37,7 +37,8 @@ app.get("/blog-create", (req, res) => {
 });
 
 app.get("/blog", (req, res) => {
-  res.status(200).render("blog");
+  params = {"id" : req.query.id}
+  res.status(200).render("blog" , params);
 });
 
 app.get("/", (req, res) => {
