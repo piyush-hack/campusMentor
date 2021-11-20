@@ -3,6 +3,7 @@ if (!localStorage.getItem("jwt_token")) {
   window.location.href = "/login";
 }
 
+
 let theEditor;
 
 // EditorClass.create({
@@ -143,6 +144,7 @@ function hidebanner() {
     }
   }, 2000);
 }
+
 
 var tries = 0;
 var timer = setInterval(() => {
