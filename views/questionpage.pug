@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/qnastyle.css">
+    <link rel="stylesheet" href="../static/css/code.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="leftmc">
+        <div class="trigger show"><i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <div class="pageinfo">
+            <div class="pi_col">
+                <div class="home"><i class="fa fa-home" aria-hidden="true"></i> <a href="">Home</a>
+                </div>
+                <div class="blogs"><i class="fa fa-book" aria-hidden="true"></i>
+                    <a href="">Read Blogs</a>
+                </div>
+                <div class="teach"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <a href="">Get Teacher's Help</a>
+                </div>
+
+                <div class="about"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                    <a href="">About Us</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="loadcover">         
+        <img src="https://i.gifer.com/origin/b4/b4d657e7ef262b88eb5f7ac021edda87.gif">
+    </div>
+    <div class="mc">
+
+        <br>
+        
+        
+    </div>
+    <form method="post" action="indexx.html" class="replyquestion" id="replyquestion">
+
+        <br>
+        <input type="hidden" id="currUser" name="user" value="">
+        <label class="h3">Content :</label>
+        <textarea name="contentDetails" id="contentDetails" rows="40" cols="80">
+        </textarea>
+        <button class="savereply" type="submit">Submit Answer</button>
+    </form>
+    <div class="rightmc">
+        <div><button id="btn">ASK A QUESTION</button></div>
+        <div class="pageinfo">
+            <div class="pi_row">
+                <div class="tq" style="--bc:#0169af;"><span>Views</span><br> 
+                    <span class="counter" data-count="15">0</span>
+                </div>
+                <div class="ans" style="--bc:rgb(243, 109, 109);"><span>Answers</span><br> 
+                    <span class="counter" data-count="10">0</span>
+                </div>
+
+            </div>
+            <div class="pi_row">
+                <div class="users" style="--bc:rgb(134, 230, 138);"><span>Users</span><br> 
+                    <span class="counter" data-count="9">0</span>
+                </div>
+                <div class="ansu" style="--bc:#0169af;"><span>Your Ans</span><br> 
+                    <span class="counter" data-count="5">0</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../static/js/answer.js" id="answerscript" data="#{result}"></script>
+
+</body>
+</html>

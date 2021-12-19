@@ -9,6 +9,17 @@ const { OAuth2Client } = require("google-auth-library");
 const sendmail = require("../middleware/sendmail");
 const router = express.Router();
 
+router.post("/", auth, async (req, res) => {
+  try {
+
+      res.send({username : req.user.username});
+  } catch (error) {
+    res.status(403).send(error);
+    console.log(error);
+  }
+});
+
+
 router.get("/getAllUser/:pass", async (req, res) => {
   if (req.params.pass == "cmpiyush") {
     try {

@@ -63,14 +63,22 @@ app.get("/login", async (req, res) => {
   res.status(200).render("login_page");
 });
 
+
+app.get("/qna", async (req, res) => {
+  res.status(200).render("qna");
+});
+
 const userrouter = require("./routes/user");
 const blogrouter = require("./routes/blog");
 const { param } = require("./routes/user");
 const teachProfrouter = require("./routes/teachProfile");
+const qnarouter = require("./routes/qna");
 
 app.use("/user", userrouter);
 app.use("/blog", blogrouter);
 app.use("/teachProfile" , teachProfrouter);
+app.use("/qa" , qnarouter);
+
 
 
 

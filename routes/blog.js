@@ -2,12 +2,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const BlogPost = require("../models/blogModel");
-// const Profile = require('../models/profilModel')
 const auth = require("../middleware/auth");
-// const fs = require('fs');
-// const path = require('path');
-// const multer = require('multer');
-// const multiparty = require('connect-multiparty');
 const Razorpay = require("razorpay");
 
 app.use(express.static("uploads"));
@@ -91,21 +86,6 @@ router.route("/cmpiyush_visitors/:id").get(async (req, res) => {
 });
 
 router.route("/IdBlog/:id").get( (req, res) => {
-  // if (req.user.status != "approved") {
-  //   return res.send({
-  //     verifymailerr:
-  //       "Please approve your account first by Mail Verfication To Move Further",
-  //   });
-  // }
-
-  // BlogPost.update(
-  //   { _id: req.params.id },
-  //   { $addToSet: { visitors: req.user.username } },
-  //   (err, result) => {
-  //     if (err) return res.status(403).send(err);
-  //     return console.log(result);
-  //   }
-  // );
 
   BlogPost.findOne({ _id: req.params.id }, (err, result) => {
     if (err) return res.status(403).send(err);

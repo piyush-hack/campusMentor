@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/qnastyle.css">
+    <link rel="stylesheet" href="../static/css/code.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="leftmc">
+        <div class="trigger show"><i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <div class="pageinfo">
+            <div class="pi_col">
+                <div class="home"><i class="fa fa-home" aria-hidden="true"></i> <a href="">Home</a>
+                </div>
+                <div class="blogs"><i class="fa fa-book" aria-hidden="true"></i>
+                    <a href="">Read Blogs</a>
+                </div>
+                <div class="teach"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <a href="">Get Teacher's Help</a>
+                </div>
+
+                <div class="about"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                    <a href="">About Us</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <form class="askquestion">
+        <label class="h3">Topic :</label>
+        <input type="text" id="title" name="title" class="form-control" placeholder="ex : Learn php " required />
+        <br>
+        <label>
+            <details>
+                <summary class="h3">Content :</summary>
+                <p>
+                    <b>Img</b> : To insert Image Just Copy And Paste Image or use campus_mentor custom tag 'cmimg' as <br> <b><xmt>&lt;cmimg src='imgsrc_here' cmimg&gt;</xmt></b> 
+                    <br><br>
+                    <b>Iframe</b> : Use campus_mentor custom tag <br> <b>&lt;cmiframe src='src_here' cmiframe&gt;</b>
+                    <br><br>
+                    <b>Inside these tags you can use any property of img and iframe tag of html</b>
+                </p>
+            </details>
+        </label>
+        <textarea name="contentDetails" id="contentDetails" rows="40" cols="80">
+        </textarea>
+        <br>
+        <label class="h3">Tags :</label>
+        <input type="text" id="tag-input1" name="tags" class="form-control" placeholder="ex : Learn php " required />
+        <br>
+        <button class="savequs" type="submit">
+
+            | Submit Question
+        </button>
+    </form>
+    <div class="loadcover">         
+        <img src="https://i.gifer.com/origin/b4/b4d657e7ef262b88eb5f7ac021edda87.gif">
+    </div>
+    <div class="mc">
+
+        <nav>
+            <div class="slider"></div>
+            <ul>
+                <li class="ra">
+                    <a href='?x=ra'> Recent Asked</a>
+                </li>
+                <li class="ma">
+                    <a href='?x=ma'> Most Answered</a>
+                </li>
+                <li class="w">
+                    <a href='?x=w'> Work</a>
+                </li>
+                <li class="c">
+                    <a href='?x=c'> Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <br>
+    </div>
+    <div class="rightmc">
+        <div><button id="btn" onclick="ani('mc' , 'askquestion' , this.id)">ASK A QUESTION</button></div>
+        <div class="pageinfo">
+            <div class="pi_row">
+                <div class="tq" style="--bc:#0169af;"><span>Questions</span><br> 
+                    <span class="counter" data-count="15">0</span>
+                </div>
+                <div class="ans" style="--bc:rgb(243, 109, 109);"><span>Answers</span><br> 
+                    <span class="counter" data-count="10">0</span>
+                </div>
+            </div>
+            <div class="pi_row">
+                <div class="users" style="--bc:rgb(134, 230, 138);"><span>Users</span><br> 
+                    <span class="counter" data-count="9">0</span>
+                </div>
+                <div class="ansu" style="--bc:#0169af;"><span>Your Ans</span><br> 
+                    <span class="counter" data-count="5">0</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../static/js/qnascript.js"></script>
+</body>
+
+</html>
