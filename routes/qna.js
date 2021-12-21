@@ -107,11 +107,16 @@ router.route("/dislike/").post(auth, async (req, res) => {
 });
 
 router.route("/answer/:title").get(async (req, res) => {
-  QnaPost.findOne({ title: req.params.title }, (err, result) => {
-    if (err) return res.status(403).send(err);
-    var params = { result: JSON.stringify(result) };
-    return res.status(200).render("questionpage", params);
-  });
+  QnaPost.findOneAndUpdate(
+    { title: req.params.title },
+    { $inc: { views: 1 } },
+    { new: true },
+    (err, result) => {
+      if (err) return res.status(403).send(err);
+      var params = { result: JSON.stringify(result) };
+      return res.status(200).render("questionpage", params);
+    }
+  );
 });
 
 router.route("/addReply/").post(auth, async (req, res) => {
@@ -136,6 +141,57 @@ router.route("/addReply/").post(auth, async (req, res) => {
       return res.json(result);
     }
   );
+});
+
+router.route("/editReply/").post(auth, async (req, res) => {
+  if (req.user.status != "approved") {
+    return res.send({
+      err: {
+        message:
+          "Please approve your account first by Mail Verfication To Move Further",
+      },
+    });
+  }
+
+  await QnaPost.updateOne(
+    { 'Replies.time': req.body.reply.replyid },
+    { '$set': {
+      'Replies.$.contentDetails': req.body.reply.contentDetails,
+  }
+    },
+    (err, result) => {
+      if (err) return res.json(err);
+      return res.json(result);
+    }
+  );
+});
+
+router.route("/deleteReply/").post(auth, async (req, res) => {
+  if (req.user.status != "approved") {
+    return res.send({
+      err: {
+        message:
+          "Please approve your account first by Mail Verfication To Move Further",
+      },
+    });
+  }
+
+  console.log(decodeURIComponent(req.body.title))
+  await QnaPost.updateOne(
+    {
+      title: decodeURIComponent(req.body.title),
+    },
+    {
+      $pull: {
+        "Replies": {time : req.body.deleteid},
+      },
+    },
+    (err, result) => {
+      if (err) return res.json(err);
+      return res.json(result);
+    }
+  );
+
 });
 
 router.route("/likeReply/").post(auth, async (req, res) => {

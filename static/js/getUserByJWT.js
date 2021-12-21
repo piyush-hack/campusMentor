@@ -32,7 +32,7 @@ function getRequest(url, callback) {
 
 function hidebanner() {
   var timer = setInterval(() => {
-    if (document.getElementsByClassName("goog-te-banner-frame")) {
+    if (document.getElementsByClassName("goog-te-banner-frame") && document.getElementsByClassName("goog-te-banner-frame")[0] != undefined) {
       document.getElementsByClassName("goog-te-banner-frame")[0].style.display =
         "none";
 

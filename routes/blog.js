@@ -94,7 +94,15 @@ router.route("/IdBlog/:id").get( (req, res) => {
 });
 
 router.route("/UserBlog/:username").get((req, res) => {
-  BlogPost.find({ username: req.params.username }, (err, result) => {
+
+  let query = {};
+
+  if( req.params.username && req.params.username != 'undefined' && req.params.username != 'All'){
+    query = { username: req.params.username }
+  }
+
+  console.log(req.params.username , query);
+  BlogPost.find(query, (err, result) => {
     if (err) return res.status(403).send(err);
     return res.json(result);
   });

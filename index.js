@@ -37,8 +37,8 @@ app.get("/blog-create", (req, res) => {
 });
 
 app.get("/blog", (req, res) => {
-  params = {"id" : req.query.id}
-  res.status(200).render("blog" , params);
+  params = { id: req.query.id };
+  res.status(200).render("blog", params);
 });
 
 app.get("/", (req, res) => {
@@ -53,16 +53,18 @@ app.get("/create_teach_profile", (req, res) => {
   res.status(200).render("create_teach_profile");
 });
 
-app.get("/userBlog", (req, res) => {
-  username = req.query.username;
-  params = {"username" : username}
-  res.status(200).render("mycards" , params);
+app.get("/userBlog/:username", (req, res) => {
+  
+  if (req.params.username && req.params.username != "undefined") {
+    username = req.params.username;
+  }
+  params = { username: username };
+  res.status(200).render("mycards", params);
 });
 
 app.get("/login", async (req, res) => {
   res.status(200).render("login_page");
 });
-
 
 app.get("/qna", async (req, res) => {
   res.status(200).render("qna");
@@ -76,11 +78,8 @@ const qnarouter = require("./routes/qna");
 
 app.use("/user", userrouter);
 app.use("/blog", blogrouter);
-app.use("/teachProfile" , teachProfrouter);
-app.use("/qa" , qnarouter);
-
-
-
+app.use("/teachProfile", teachProfrouter);
+app.use("/qa", qnarouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

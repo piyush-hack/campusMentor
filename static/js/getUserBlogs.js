@@ -1,4 +1,6 @@
-url = "/blog/UserBlog/"+ get("username");
+let queryusername = document.getElementById("thishandler").getAttribute("data");
+console.log("queryusername", queryusername,);
+url = "/blog/UserBlog/"+ queryusername;
 getRequest(url, (data) => console.log(usercard(data)));
 
 function usercard(cardData) {
@@ -6,6 +8,7 @@ function usercard(cardData) {
   if (cardData) {
     var blogcards = document.getElementById("blogCards");
     blogcards.innerHTML = "";
+    cardData.reverse();
     for (x in cardData) {
       blogcards.innerHTML += `
       <div class="card" style="width: 18rem">

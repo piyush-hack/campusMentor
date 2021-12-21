@@ -14,8 +14,9 @@ if (!isactivated) {
 $(`.${isactivated}`).addClass("isactive isactivated");
 console.log("here");
 
-$(window)
-  .resize(function () {
+function navslide(){
+  $(window)
+  .resize(function() {
     var $slider = $("nav .slider"),
       width = $("nav ul li").width,
       $isActive = $("nav ul li.isactivated"),
@@ -39,8 +40,9 @@ $(window)
         },
       });
     });
-  })
-  .resize();
+  }).resize();
+}
+
 
 $("nav ul li").on("click", function () {
   $("nav ul li").removeClass("isactivated");
@@ -240,8 +242,30 @@ function remove_ani(op0, trd, curr, str) {
 }
 
 function setBody(data) {
+  let dummydata = data.slice(0, data.length - 1);
 
+  switch (isactivated) {
+    case "ra":
+      break;
+    case "ma":
+      dummydata = dummydata.sort(function (a, b) {
+        return parseFloat(a.Replies.length) - parseFloat(b.Replies.length);
+      });
+      break;
+    case "vi":
+      dummydata = dummydata.sort(function (a, b) {
+        return parseFloat(a.views) - parseFloat(b.views);
+      });
+      break;
+    case 'up':
+      dummydata = dummydata.sort(function (a, b) {
+        return parseFloat(a.likes.length) - parseFloat(b.likes.length);
+      });
+      break;
+  }
 
+  dummydata[dummydata.length] = data[data.length - 1];
+  data = dummydata;
   for (let i = data.length - 2; i >= 0; i--) {
     const element = data[i];
     console.log(element);
@@ -272,7 +296,9 @@ function setBody(data) {
                 <input type="hidden" class="qnaId" value="${element._id}">
                 <button class="upvote v" ${upvotestate}><i class="fa fa-sort-asc" aria-hidden="true"></i>
                 </button>
-                <div class="count">${element.likes.length - element.likes.length}</div>
+                <div class="count">${
+                  element.likes.length - element.dislikes.length
+                }</div>
                 <button class="downvote v" ${downvotestate}><i class="fa fa-sort-desc" aria-hidden="true"></i>
                 </button>
             </div>
@@ -295,10 +321,13 @@ function setBody(data) {
                 ${tagdivhtml}
             </div>
             <div class="reply cdw">
-                <a class=" na dh"><i class="fa fa-comments-o" aria-hidden="true"></i> 4 Answers</a>
+                <a class=" na dh"><i class="fa fa-comments-o" aria-hidden="true"></i>  
+                 | ${element.Replies.length} Answers</a>
                 <a class=" views dh"> <i class="fa fa-eye" aria-hidden="true"></i>
-                    | 904 views</a>
-                <a class="sa" href="/qa/answer/${encodeURIComponent(element.title)}">View</a>
+                    | ${element.views} views</a>
+                <a class="sa" href="/qa/answer/${encodeURIComponent(
+                  element.title
+                )}">View</a>
             </div>
         </div>
     </div>
@@ -373,7 +402,6 @@ function setBody(data) {
           x.html(parseInt(x.html()) - 1);
           z.prop("disabled", true);
           y.prop("disabled", false);
-          
         },
       });
     } else {
@@ -383,6 +411,7 @@ function setBody(data) {
 
   document.querySelector(".loadcover").style.display = "none";
 
+  navslide();
 }
 
 //------------------------------------------tags input field------------------------------------

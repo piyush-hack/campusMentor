@@ -1,6 +1,6 @@
 if (localStorage.getItem("jwt_token")) {
   alert("You are already logged in Sending You to Previous Page");
-  window.history.back();
+  GoBackWithRefresh();
 }
 
 $("#signup").click(function () {
@@ -17,3 +17,13 @@ function showlogin() {
 
 
 };
+
+function GoBackWithRefresh(event) {
+  if ('referrer' in document) {
+      window.location = document.referrer;
+      /* OR */
+      //location.replace(document.referrer);
+  } else {
+      window.history.back();
+  }
+}

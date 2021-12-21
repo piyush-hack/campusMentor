@@ -67,9 +67,19 @@ function registerd(re_response) {
         "local storage token is : ",
         localStorage.getItem("jwt_token")
       );
-      window.history.back().reload();
+      GoBackWithRefresh();
     } else {
       alert("Sorry, your browser does not support Web Storage...");
     }
+  }
+}
+
+function GoBackWithRefresh(event) {
+  if ('referrer' in document) {
+      window.location = document.referrer;
+      /* OR */
+      //location.replace(document.referrer);
+  } else {
+      window.history.back();
   }
 }

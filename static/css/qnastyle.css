@@ -233,11 +233,25 @@ button[disabled] {
   max-width: 58vw;
 }
 
+.qa_container .col2 .edit {
+  float: right;
+  margin: 15px;
+  background-color: #000;
+  color: #fff;
+  padding: 6px;
+}
+.qa_container .col2 .delete {
+  float: right;
+  margin: 15px;
+  background-color: #000;
+  color: #fff;
+  padding: 6px;
+}
 .qa_container .col2 .tags {
   margin-top: 15px;
   padding: 5px;
   display: flex;
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .dh {
@@ -380,21 +394,21 @@ button[disabled] {
   top: 8px;
 }
 
-.askquestion, .replyquestion {
+.askquestion {
   display: none;
   flex-direction: column;
   width: 57vw;
   margin: auto;
   margin-bottom: 53px;
   margin-top: 33px;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
-.askquestion, .replyquestion .h3 {
+.askquestion .h3 {
   font-size: 25px;
 }
 
-.askquestion, .replyquestion input {
+.askquestion input {
   min-height: 25px;
   border-radius: 5px;
   padding: 5px;
@@ -404,13 +418,13 @@ button[disabled] {
   border: 5px solid white;
 }
 
-.askquestion, .replyquestion input.form-control:focus {
+.askquestion input.form-control:focus {
   border: 5px solid white;
   outline-width: 0;
   animation: btnclick 0.3s forwards;
 }
 
-.askquestion, .replyquestion button {
+.askquestion button {
   padding: 5px;
   font-size: 20px;
   background-color: #0169af;
@@ -422,7 +436,7 @@ button[disabled] {
   position: relative;
 }
 
-.askquestion, .replyquestion button:hover {
+.askquestion button:hover {
   /* border: 5px solid rgba(1, 105, 175 , 0.5); */
   -webkit-background-clip: padding-box; /* for Safari */
   background-clip: padding-box;

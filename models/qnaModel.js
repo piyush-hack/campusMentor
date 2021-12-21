@@ -46,6 +46,10 @@ const QnaPost = Schema({
         type:Number,
         default:0// 1 for show and 2 for feature
     },
+    views:{
+        type:Number,
+        default:0
+    },
     reports:[{type: String}],
 
 });

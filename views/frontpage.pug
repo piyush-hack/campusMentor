@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="static/css/front_page.css" />
+    <link rel="stylesheet" href="../static/css/front_page.css" />
     <link rel="stylesheet" href="static/css/mycard.css" />
     <link rel="stylesheet" href="static/css/loader.css">
     <link rel="stylesheet" href="static/css/teach_cards.css">
@@ -43,6 +43,7 @@
                         //- <li><a href="#contact" data-after="Contact">Contact</a></li>
                         <li><a href="/login" id="login_logout" data-after="Login">Login</a></li>
                         <li><a href="/user/logout" id="reset_site" data-after="Login">RESET SITE</a></li>
+                        <li><span id="google_translate_element" onclick="hidebanner()"></li>
 
                     </ul>
                 </div>
@@ -62,10 +63,10 @@
         <div class="front_mount">
           
         </div>
-        <p class="fd_content horizontal" id="myname">CAMPUS LOG</p>
-        <span class="fd_content horizontal" style="padding-top : 200" id="google_translate_element" onclick="hidebanner()">
-        </span>
+        <p class="fd_content horizontal" style="font-size: 29px;z-index: 2;" id="myname">CAMPUS LOG</p>
+        
         <p class="fd_content con2" id="center_btn">
+          <br>
           <input type="password" id="mailverfiypassword" placeholder="Your account password here"><br>
           <a class="fd_btn big_btn" id="mailverfiypasswordbtn" onclick="verfiymail()" >Send Mail</a>
         </p>
@@ -78,7 +79,7 @@
       </div>
 
       <section class="mycards">
-        <h2 class="mycard_heading">BLOGS</h2>
+        <h2 class="mycard_heading">BLOGS <a href="/userBlog/All"> <i class="fa fa-angle-double-right"></i></a></h2>
         <br><br><br>
 
         <div class="container" id="blogCards">
@@ -100,7 +101,6 @@
       </section>
 
       <p class="teachcardhead"> <span>M</span>entor <span>P</span>rofiles</p>
-      <h2 class="mycard_heading">BLOGS</h2>
       <section class="teachers_Card" id="allteachcards">
         <div class="teach_card">
           <div class="img_section">

@@ -24,13 +24,15 @@ function myname(userdata) {
 
     if (userdata[0].status != "approved") {
       document.getElementById("myname").innerHTML =
-        " <span style='font-size:25px'>Hi </span><br>" +
+        `<span style='font-size:25px'><a href="#hero">
+        <span>C</span>AMPUS <span>M</span>ENTOR</a></span><br> Welcome's ` +
         username +
-        `<br><a class="fd_btn big_btn" onclick="openmail(this)" >Verfiy Mail</a>`;
+        `<br><br><a class="fd_btn big_btn" onclick="$('#center_btn').toggle()" >Verfiy Mail</a>`;
     }else{
       document.getElementById("myname").innerHTML =
-      " <span style='font-size:25px'>Hi </span><br>" +
-      username;
+      `<span style='font-size:25px'><a href="#hero">
+        <span>C</span>AMPUS <span>M</span>ENTOR</a></span><br> Welcome's ` +
+      username + `<br><br><a class="fd_btn big_btn" href="/qna" >Ask A Doubt</a>`;
       document.getElementsByClassName("con2")[0].innerHTML = ""
     }
   }
@@ -43,6 +45,7 @@ function mycard(cardData) {
   if (cardData) {
     var blogcards = document.getElementById("blogCards");
     blogcards.innerHTML = "";
+    cardData.data = cardData.data.reverse().slice(0,6);
     for (x in cardData["data"]) {
       blogcards.innerHTML += `
       <div class="card" style="width: 18rem">
