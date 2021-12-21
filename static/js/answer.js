@@ -285,9 +285,9 @@ function setBody(data) {
                 ${tagdivhtml}
             </div>
             <div class="reply cdw">
-                <a class=" na dh"><i class="fa fa-comments-o" aria-hidden="true"></i> 4 Answers</a>
+                <a class=" na dh"><i class="fa fa-comments-o" aria-hidden="true"></i> ${element.Replies.length} Answers</a>
                 <a class=" views dh"> <i class="fa fa-eye" aria-hidden="true"></i>
-                    | 904 views</a>
+                    | ${element.views} views</a>
                 <a class="sa" id="sa" href="#replyquestion" onclick="$('.replyquestion').show()";>Answer</a>
             </div>
         </div>
