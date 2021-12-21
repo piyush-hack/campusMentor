@@ -108,6 +108,14 @@ $.ajax({
     }
     setBody(data);
   },
+  error : function (error) { 
+    console.log(error)
+    if(error.responseJSON && error.responseJSON.name == "JsonWebTokenError"){
+      alert("Login First");
+      window.location.href = "/login"
+    }
+
+   }
 });
 
 let theEditor;
@@ -177,6 +185,14 @@ $(".savequs").on("click", function (e) {
       }
       alert("success");
     },
+    error : function (error) { 
+      console.log(error)
+      if(error.responseJSON && error.responseJSON.name == "JsonWebTokenError"){
+        alert("Login First");
+        window.location.href = "/login"
+      }
+  
+     }
   });
 });
 
@@ -366,6 +382,14 @@ function setBody(data) {
           y.prop("disabled", true);
           z.prop("disabled", false);
         },
+        error : function (error) { 
+          console.log(error)
+          if(error.responseJSON && error.responseJSON.name == "JsonWebTokenError"){
+            alert("Login First");
+            window.location.href = "/login"
+          }
+      
+         }
       });
     } else {
       alert("Already upvoted");
@@ -403,6 +427,14 @@ function setBody(data) {
           z.prop("disabled", true);
           y.prop("disabled", false);
         },
+        error : function (error) { 
+          console.log(error)
+          if(error.responseJSON && error.responseJSON.name == "JsonWebTokenError"){
+            alert("Login First");
+            window.location.href = "/login"
+          }
+      
+         }
       });
     } else {
       alert("Already downvoted");

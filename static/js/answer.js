@@ -23,6 +23,14 @@ $.ajax({
     $("#currUser").val(bodyData.currUser);
     setBody(bodyData);
   },
+  error : function (error) { 
+    console.log(error)
+    if(error.responseJSON && error.responseJSON.name == "JsonWebTokenError"){
+      alert("Login First");
+      window.location.href = "/login"
+    }
+
+   }
 });
 
 $(document).ready(function () {

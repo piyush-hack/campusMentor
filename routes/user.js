@@ -11,7 +11,6 @@ const router = express.Router();
 
 router.post("/", auth, async (req, res) => {
   try {
-
       res.send({username : req.user.username});
   } catch (error) {
     res.status(403).send(error);

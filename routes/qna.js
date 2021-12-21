@@ -8,6 +8,7 @@ const { check, validationResult, param } = require("express-validator");
 router.use("/static", express.static("static"));
 router.use(express.urlencoded({ extended: true }));
 
+
 router
   .route("/Add")
   .post([check("title", "Title is required ").notEmpty()], auth, (req, res) => {
