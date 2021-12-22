@@ -37,7 +37,7 @@ function setdatainbody(doc_data) {
   $("#subheading").html(doc_data["subheading"]);
   $("#date").html(doc_data["date"].slice(0, 10));
   document.getElementById("blogvisit").href =
-    "/userBlog?username=" + doc_data["username"];
+    "/userBlog/" + doc_data["username"];
   $("#t_comments").html(doc_data["Comment"]);
   var tagarr = doc_data["tags"][0].split(",");
 
