@@ -6,15 +6,6 @@ if (!localStorage.getItem("jwt_token")) {
 
 let theEditor;
 
-// EditorClass.create({
-//   toolbar: ["bold", "italic"],
-//   mediaEmbed: {
-//     previewsInData: true,
-//   },
-// })
-//   .then("hgmgh")
-//   .catch("...");
-
 ClassicEditor.create(document.querySelector("#contentDetails"), {
   ckfinder: {
     uploadUrl:
@@ -84,11 +75,6 @@ function addclass() {
     "ck-editor__editable_inline"
   )[0].style.minHeight = "500px";
 }
-
-// document.getElementById("printinconsole").onclick = function () {
-//   console.log(getDataFromTheEditor());
-// };
-
 setInterval(() => {
   var blog = getDataFromTheEditor();
 
@@ -105,7 +91,7 @@ setInterval(() => {
       copyblockquote(blockquotes[i].innerText);
     };
   }
-}, 5000);
+}, 5000); 
 
 function showsub() {
   document.getElementById("submit").style.display = "block";

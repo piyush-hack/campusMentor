@@ -68,6 +68,27 @@ router.route("/Add").post(auth, (req, res) => {
     });
 });
 
+router.route("/edit/").post(auth, (req, res) => {
+
+  if (req.user.status != "approved") {
+    return res.send({
+      verifymailerr:
+        "Please approve your account first by Mail Verfication To Move Further",
+    });
+  }
+  BlogPost.findOneAndUpdate(
+    {_id :req.body.id}, {body : req.body.body},
+    (err, result) => {
+      if (err) return res.json(err);
+      else if (result) {
+        // console.log(result);
+        return res.json({msg : "saved"});
+      }
+      return res.json({err : err});
+    }
+  );
+});
+
 router.route("/posts").get(async (req, res) => {
   const page = parseInt(req.query.page);
   const limit = parseInt(req.query.limit);

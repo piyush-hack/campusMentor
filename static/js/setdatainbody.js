@@ -25,6 +25,10 @@ function setdatainbody(doc_data) {
           dislike();
         };
       }
+
+      if (doc_data["username"] != username) {
+        document.getElementById("editcontent").innerHTML = "";
+      }
     };
     xmlhttp.send(JSON.stringify(sendata));
   } else {
@@ -76,6 +80,16 @@ function setdatainbody(doc_data) {
 
   document.getElementById("load").style.display = "none";
   document.getElementById("mainContainer").style.display = "block";
+
+  var stickySidebar = $(".edco").offset().top;
+
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > stickySidebar) {
+      $("#blogging").addClass("affix");
+    } else {
+      $("#blogging").removeClass("affix");
+    }
+  });
 }
 
 // window.onload = function () {
@@ -112,3 +126,150 @@ function setdatainbody(doc_data) {
 //   }, 2000);
 // };
 
+let theEditor;
+
+ClassicEditor.create(document.querySelector("#contentDetails"), {
+  ckfinder: {
+    uploadUrl:
+      "/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json",
+  },
+  mediaEmbed: {
+    previewsInData: true,
+  },
+})
+  .then((editor) => {
+    theEditor = editor;
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+function getDataFromTheEditor() {
+  return theEditor.getData();
+}
+
+setTimeout(function () {
+  document
+    .getElementsByClassName("ck-editor__editable_inline")[0]
+    .setAttribute("spellcheck", "false");
+
+  document.getElementsByClassName("ck-file-dialog-button")[0].style.display =
+    "none";
+  document.getElementsByClassName("ck ck-dropdown")[2].style.display = "none";
+  document.getElementsByClassName(
+    "theorytag"
+  )[0].innerHTML += `&nbsp;&nbsp <span data-container="body" data-toggle="popover" data-placement="top"
+   title="<h3>How To Insert Image And Iframe </h3>" data-html="true"
+   data-content=" <b>Img</b> : To insert Image Just Copy And Paste Image or use campus_mentor custom tag 'cmimg' as <br> <b><xmt>◀cmimg src='imgsrc_here' cmimg▶</xmt></b> 
+   <br><br>
+   <b>Iframe</b> : Use campus_mentor custom tag <br> <b>◀cmiframe src='src_here' cmiframe▶</b>
+   <br><br>
+   <b>Inside these tags you can use any property of img and iframe tag of html</b>"
+   >
+   <i class="fa fa-info-circle" aria-hidden="true"></i></span>`;
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+  });
+}, 1000);
+
+function addclass() {
+  document.getElementsByClassName(
+    "ck-editor__editable_inline"
+  )[0].style.minHeight = "500px";
+}
+setInterval(() => {
+  var blog = getDataFromTheEditor();
+
+  blog = changeTagsInblog(blog);
+
+  document.getElementById("my-theory").innerHTML = blog;
+
+  var theory = document.getElementById("my-theory");
+
+  var blockquotes = theory.getElementsByTagName("blockquote");
+  for (let i = 0; i < blockquotes.length; i++) {
+    // console.log(blockquotes[i].innerHTML);
+    blockquotes[i].onclick = function () {
+      copyblockquote(blockquotes[i].innerText);
+    };
+  }
+}, 5000);
+
+function showsub() {
+  document.getElementById("submit").style.display = "block";
+}
+
+function copyblockquote(copyText) {
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText);
+}
+
+function changeTagsInblog(blog) {
+  //cmimg
+
+  blog = blog.replace(/&lt;cmimg/g, "<img");
+  blog = blog.replace(/&nbsp;cmimg&gt;/g, ">");
+  blog = blog.replace(/cmimg&gt;/g, ">");
+
+  //cmiframe
+
+  blog = blog.replace(/&lt;cmiframe/g, "<iframe");
+  blog = blog.replace(/&nbsp;cmiframe&gt;/g, "></iframe>");
+  blog = blog.replace(/cmiframe&gt;/g, "></iframe>");
+
+  return blog;
+}
+
+function textareabody(blog) {
+  //cmimg
+
+  blog = blog.replace(/<img/g, "&lt;cmimg");
+  // blog = blog.replace(/&nbsp;cmimg&gt;/g, ">");
+  blog = blog.replace(/cmimg&gt;/g, ">");
+
+  //cmiframe
+
+  blog = blog.replace(/<iframe/g, "&lt;cmiframe");
+  blog = blog.replace(/ ><\/iframe>/g, "&nbsp;cmiframe&gt;");
+  blog = blog.replace(/><\/iframe>/g, "&nbsp;cmiframe&gt;");
+
+  return blog;
+}
+var putext = 0;
+document.getElementById("newedit").addEventListener("click", function () {
+  var x = document.getElementById("editcontent1");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
+  if (putext == 0) {
+    var blog = document.getElementById("body").innerHTML;
+    blog = textareabody(blog);
+
+    theEditor.data.set(blog);
+  }
+  putext++;
+});
+
+document.getElementById("savedit").addEventListener("click", function () {
+  blog_id = get("id");
+
+  var blog = getDataFromTheEditor();
+
+  blog = changeTagsInblog(blog);
+
+  var postdata = { id: blog_id, body: blog };
+  postRequest(JSON.stringify(postdata), "/blog/edit", (data) =>
+    editDone(data)
+  );
+});
+
+function editDone(data) {
+  console.log(data)
+  alert(data[Object.keys(data)[0]])
+}
