@@ -77,7 +77,11 @@ function setdatainbody(doc_data) {
 
     document.getElementById("body").innerHTML = doc_data["body"];
   }
-
+  // document.getElementsByTagName("blockquote").contentEditable = "true";
+  var blockquotes = document.getElementsByTagName("blockquote");
+  for (let i = 0; i < blockquotes.length; i++) {
+    blockquotes[i].contentEditable = "true";
+  }
   document.getElementById("load").style.display = "none";
   document.getElementById("mainContainer").style.display = "block";
 
@@ -189,6 +193,7 @@ setInterval(() => {
   var blockquotes = theory.getElementsByTagName("blockquote");
   for (let i = 0; i < blockquotes.length; i++) {
     // console.log(blockquotes[i].innerHTML);
+    blockquotes[i].contentEditable = "true";
     blockquotes[i].onclick = function () {
       copyblockquote(blockquotes[i].innerText);
     };
