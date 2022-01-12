@@ -257,6 +257,27 @@ document.getElementById("newedit").addEventListener("click", function () {
     blog = textareabody(blog);
 
     theEditor.data.set(blog);
+    const source = document.querySelector('.source');
+    const editor = document.querySelector(".ck-editor__main");
+    const source_toggle = document.createElement("button");
+    source_toggle.textContent = "Source mode";
+    source_toggle.classList.add("source-toggle");
+    source_toggle.setAttribute("aria-pressed", "false");
+    source_toggle.addEventListener("click", function () {
+      if (source_toggle.getAttribute("aria-pressed") === "false") {
+        source_toggle.setAttribute("aria-pressed", "true");
+        source.value = theEditor.getData();
+        editor.style.display = "none";
+        source.style.display = "block";
+      } else {
+        source_toggle.setAttribute("aria-pressed", "false");
+        theEditor.setData(source.value);
+        editor.style.display = "block";
+        source.style.display = "none";
+      }
+    });
+    const editor_toolbar = document.querySelector(".ck-toolbar");
+    editor_toolbar.appendChild(source_toggle);
   }
   putext++;
 });
@@ -269,12 +290,10 @@ document.getElementById("savedit").addEventListener("click", function () {
   blog = changeTagsInblog(blog);
 
   var postdata = { id: blog_id, body: blog };
-  postRequest(JSON.stringify(postdata), "/blog/edit", (data) =>
-    editDone(data)
-  );
+  postRequest(JSON.stringify(postdata), "/blog/edit", (data) => editDone(data));
 });
 
 function editDone(data) {
-  console.log(data)
-  alert(data[Object.keys(data)[0]])
+  console.log(data);
+  alert(data[Object.keys(data)[0]]);
 }
