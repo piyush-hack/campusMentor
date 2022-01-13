@@ -82,6 +82,13 @@ function setdatainbody(doc_data) {
   for (let i = 0; i < blockquotes.length; i++) {
     blockquotes[i].contentEditable = "true";
   }
+  hljs.initHighlightingOnLoad();
+  $("blockquote").each(function (i, block) {
+    hljs.highlightBlock(block);
+  });
+
+  $(".hljs-comment").css("color" , "white")
+
   document.getElementById("load").style.display = "none";
   document.getElementById("mainContainer").style.display = "block";
 
@@ -225,6 +232,11 @@ function changeTagsInblog(blog) {
   blog = blog.replace(/&nbsp;cmiframe&gt;/g, "></iframe>");
   blog = blog.replace(/cmiframe&gt;/g, "></iframe>");
 
+  //cmscript
+
+  blog = blog.replace(/&lt;cmscript/g, "<script");
+  blog = blog.replace(/&nbsp;cmscript&gt;/g, "></script>");
+  blog = blog.replace(/cmscript&gt;/g, "></script>");
   return blog;
 }
 
@@ -240,6 +252,12 @@ function textareabody(blog) {
   blog = blog.replace(/<iframe/g, "&lt;cmiframe");
   blog = blog.replace(/ ><\/iframe>/g, "&nbsp;cmiframe&gt;");
   blog = blog.replace(/><\/iframe>/g, "&nbsp;cmiframe&gt;");
+
+  //cmscript
+
+  blog = blog.replace(/<script/g, "&lt;cmscript");
+  blog = blog.replace(/ ><\/script>/g, "&nbsp;cmscript&gt;");
+  blog = blog.replace(/><\/script>/g, "cmscript&gt;");
 
   return blog;
 }
@@ -257,7 +275,7 @@ document.getElementById("newedit").addEventListener("click", function () {
     blog = textareabody(blog);
 
     theEditor.data.set(blog);
-    const source = document.querySelector('.source');
+    const source = document.querySelector(".source");
     const editor = document.querySelector(".ck-editor__main");
     const source_toggle = document.createElement("button");
     source_toggle.textContent = "Source mode";

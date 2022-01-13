@@ -83,3 +83,7 @@ table th {
 ::-webkit-scrollbar-thumb:hover {
   background: #a3a0a0; 
 }
+
+.revHigh{
+  color: white !important;
+}
