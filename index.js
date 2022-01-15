@@ -33,10 +33,19 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
 app.get("/blog-create", (req, res) => {
+  res.status(200).render("blog-create2");
+});
+
+app.get("/blog-create2", (req, res) => {
   res.status(200).render("blog-create");
 });
 
 app.get("/blog", (req, res) => {
+  params = { id: req.query.id };
+  res.status(200).render("blog2", params);
+});
+
+app.get("/blog2", (req, res) => {
   params = { id: req.query.id };
   res.status(200).render("blog", params);
 });

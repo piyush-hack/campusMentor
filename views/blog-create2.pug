@@ -10,22 +10,30 @@
 
 
     <title>Blog</title>
+    //-text area css
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link rel="stylesheet" href="https://piyush-hack.github.io/pick5/snippets/styles.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://piyush-hack.github.io/pick5/assets/styles.css" type="text/css" />
+    <link rel="stylesheet" href="https://piyush-hack.github.io/pick5/snippets/features/html-embed/snippet.css" type="text/css" data-cke="true" />
+    <link rel="stylesheet" href="https://piyush-hack.github.io/pick5/assets/snippet-styles.css" type="text/css" data-cke="true" />
+    <link rel="stylesheet" href="https://piyush-hack.github.io/pick5/snippets/assets.css" type="text/css" data-cke="true" />
+    //-text area css ends
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/code.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+    //- <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
 
     <link rel="stylesheet" href="../static/css/blog-create.css">
 
@@ -34,7 +42,7 @@
 <body style="padding:10vw">
     <div id="google_translate_element" onclick="hidebanner()">
     </div>
-    <h1>Create your blog</h1>
+    <h1 class="h1">Create your blog</h1>
     <br><br>
     <form method="POST" action="/blog/Add" id="my_form" name="Form">
         //- <label class="h3">Image Referring to your blog : </label>
@@ -53,11 +61,13 @@
         <br>
         <label class="h3 theorytag">Theory</label>
         <br>
-        <button type="button" class="ta btn " data-toggle="modal" data-target="#myModal">
-            <img src="https://img.icons8.com/ios-glyphs/30/000000/upload--v1.png" />
-        </button>
-        <textarea name="contentDetails" id="contentDetails" rows="40" cols="80">
-        </textarea>
+        //- <button type="button" class="ta btn " data-toggle="modal" data-target="#myModal">
+        //-     <img src="https://img.icons8.com/ios-glyphs/30/000000/upload--v1.png" />
+        //- </button>
+
+        <div id="snippet-html-embed"><img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="description of gif" /></div>
+        <style>#preview-data-container {width: 100%;height: 500px;border: solid 2px #333;}.ck-editor__editable_inline {max-height: 500px;overflow: auto;}.ck-focused {top: 0;}
+        </style>
         <br><br>
                
         <div class="modal fade" id="myModal">
@@ -98,13 +108,24 @@
         //- <button id="printinconsole" type="button">PRINT</button>
         <h3><button type="button" class="btn btn-outline-success" onclick="showsub()">ENABLE SUBMIT BUTTON</button></h3>
         <br>
-        <div id="my-theory" name="body"></div>
+        <button type="button" id="preview-data-action">
+           | Preview editor data
+        </button>
+        <iframe id="preview-data-container" aria-hidden="true" tabindex="-1"></iframe>
         <br>
         <button id="submit" class="btn btn-primary btn-lg btn-block" type="submit" style="display: none;" name="submit" >Submit Blog</button>
     </form>
 
-    <script src="../static/js/blog-create.js"></script>
-    <script src="../static/js/saveblog.js"></script>
+
+    //- textarea script
+    <script src="https://piyush-hack.github.io/pick5/assets/docsearch.min.js"></script>
+    <script src="https://piyush-hack.github.io/pick5/assets/snippet.js"></script>
+    <script src="https://piyush-hack.github.io/pick5/snippets/assets.js"></script>
+    <script src="../static/js/snippet.js"></script>
+    <script src="https://piyush-hack.github.io/pick5/assets/buildwarningbanner.js" async></script>
+    //- textarea script ends
+
+    <script src="../static/js/createtextarea.js"></script>
     <script type="text/javascript">function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en'},'google_translate_element');}
     </script> 
 

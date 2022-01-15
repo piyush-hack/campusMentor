@@ -17,8 +17,7 @@ blockquote p {
   margin: 0;
 }
 
-
-.table{
+.table {
   max-width: 100vw;
   overflow-x: scroll;
 }
@@ -26,8 +25,6 @@ table {
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 10px;
   border-collapse: collapse;
-
-  
 }
 
 table td,
@@ -41,7 +38,6 @@ table tr:nth-child(odd) {
 
   background-color: grey;
   color: white;
-
 }
 
 table tr:nth-child(even) {
@@ -49,7 +45,6 @@ table tr:nth-child(even) {
 
   background-color: #707070;
   color: white;
-
 }
 
 table tr:hover {
@@ -71,19 +66,49 @@ table th {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #071639; 
+  background: #071639;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: transparent;
-  background: grey; 
+  background: grey;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a3a0a0; 
+  background: #a3a0a0;
 }
 
-.revHigh{
+.revHigh {
   color: white !important;
+}
+.tags-input-wrapper {
+  background: transparent;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+}
+.tags-input-wrapper input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 140px;
+  margin-left: 8px;
+}
+.tags-input-wrapper .tag {
+  display: inline-block;
+  background-color: #0169af;
+  color: white;
+  border-radius: 4px;
+  padding: 2px 3px 0px 7px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 5px 15px -2px rgb(94 134 160 / 70%);
+  border: 5px solid rgba(94, 134, 160, 0.5);
+}
+.tags-input-wrapper .tag a {
+  margin: 0 7px 3px;
+  display: inline-block;
+  cursor: pointer;
 }

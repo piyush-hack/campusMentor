@@ -67,6 +67,25 @@ router.route("/Add").post(auth, (req, res) => {
       console.log(err), res.json({ err: err });
     });
 });
+router.route("/Remove").post(auth, (req, res) => {
+  if (req.user.status != "approved") {
+    return res.send({
+      verifymailerr:
+        "Please approve your account first by Mail Verfication To Move Further",
+    });
+  }
+  BlogPost.remove(
+    {_id :req.body.id},
+    (err, result) => {
+      if (err) return res.json(err);
+      else if (result) {
+        // console.log(result);
+        return res.json({msg : "Deleted"});
+      }
+      return res.json({err : err});
+    }
+  );
+});
 
 router.route("/edit/").post(auth, (req, res) => {
 

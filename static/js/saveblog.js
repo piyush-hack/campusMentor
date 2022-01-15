@@ -47,3 +47,23 @@ function validateForm() {
     return false;
   }
 }
+
+function validateFormDirectly() {
+  var t = editorInt();
+  var a = document.forms["Form"]["coverImage"].value;
+  var b = document.forms["Form"]["title"].value;
+  var c = document.forms["Form"]["subheading"].value;
+  var d = document.forms["Form"]["tags"].value;
+  var e = t.getData();
+
+  if (
+    (a == null || a == "",
+    b == null || b == "" || b.length < 7,
+    c == null || c == "" || c.length < 15,
+    d == null || d == "",
+    e == null || e == "" || e.length < 200)
+  ) {
+    alert("Please Fill All Required Field With Required Conditions"+a+b+c+d+e);
+    return false;
+  }
+}
