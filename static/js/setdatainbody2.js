@@ -82,8 +82,13 @@ function setdatainbody(doc_data) {
   for (let i = 0; i < blockquotes.length; i++) {
     blockquotes[i].contentEditable = "true";
   }
-  hljs.initHighlightingOnLoad();
+//   hljs.initHighlightingOnLoad();
   $("blockquote").each(function (i, block) {
+    hljs.highlightBlock(block);
+  });
+
+  $("pre").each(function (i, block) {
+      $(this).attr("contentEditable" , true)
     hljs.highlightBlock(block);
   });
 

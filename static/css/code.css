@@ -6,7 +6,7 @@ blockquote {
   font-family: "Source Code Pro", monospace;
   font-style: initial;
   font-size: 13px;
-  max-height: 1000px;
+  max-height: 700px;
   border-radius: 10px;
   padding: 10px;
   overflow-x: scroll;
@@ -111,4 +111,42 @@ table th {
   margin: 0 7px 3px;
   display: inline-block;
   cursor: pointer;
+}
+
+pre {
+  position: relative;
+  padding: 1em;
+  color: #353535;
+  background: hsla(0, 0%, 78%, 0.3);
+  border-radius: 10px;
+  text-align: left;
+  direction: ltr;
+  tab-size: 4;
+  white-space: pre-wrap;
+  font-style: normal;
+  min-width: 200px;
+  display: block;
+  font-size: 87.5%;
+  margin-top: 0;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  max-height: 700px;
+  overflow-x: scroll;
+}
+
+pre[data-language]:after {
+  content: attr(data-language);
+  position: absolute;
+}
+
+pre code {
+  background: unset;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: inherit;
+  word-break: normal;
+  word-wrap: break-word;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }
