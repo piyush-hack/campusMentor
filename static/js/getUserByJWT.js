@@ -1,5 +1,4 @@
 function postRequest(data, url, callback) {
-
   var xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
   var theUrl = url;
   var sendata = JSON.parse(data);
@@ -32,7 +31,10 @@ function getRequest(url, callback) {
 
 function hidebanner() {
   var timer = setInterval(() => {
-    if (document.getElementsByClassName("goog-te-banner-frame") && document.getElementsByClassName("goog-te-banner-frame")[0] != undefined) {
+    if (
+      document.getElementsByClassName("goog-te-banner-frame") &&
+      document.getElementsByClassName("goog-te-banner-frame")[0] != undefined
+    ) {
       document.getElementsByClassName("goog-te-banner-frame")[0].style.display =
         "none";
 
@@ -53,7 +55,10 @@ var timer = setInterval(() => {
 
 var tries2 = 0;
 var timer2 = setInterval(() => {
-  if (document.getElementsByTagName("body")[0].style.position || tries2 >= 100) {
+  if (
+    document.getElementsByTagName("body")[0].style.position ||
+    tries2 >= 100
+  ) {
     clearInterval(timer);
     document.getElementsByTagName("body")[0].style.position = null;
     console.log(document.getElementsByTagName("body")[0].style.position);

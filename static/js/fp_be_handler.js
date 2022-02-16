@@ -1,9 +1,9 @@
-
-
 var postdata = { a: " " };
-postRequest(JSON.stringify(postdata), "/user/getUser/", (data) =>
-  console.log(myname(data))
-);
+if (localStorage.getItem("jwt_token")) {
+  postRequest(JSON.stringify(postdata), "/user/getUser/", (data) =>
+    console.log(myname(data))
+  );
+}
 
 document.getElementById("reset_site").style.display = "block";
 
@@ -13,8 +13,10 @@ function myname(userdata) {
   if (userdata[0]["username"]) {
     document.getElementById("login_logout").innerHTML = "LOGOUT";
     document.getElementById("reset_site").style.display = "none";
-    document.getElementById("teachprofile").href = "/myprofile?tn="+userdata[0]["username"]
-    document.getElementById("myallblogs").href = "/userBlog?username="+userdata[0]["username"]
+    document.getElementById("teachprofile").href =
+      "/myprofile?tn=" + userdata[0]["username"];
+    document.getElementById("myallblogs").href =
+      "/userBlog?username=" + userdata[0]["username"];
     document.getElementById("login_logout").onclick = function logout() {
       localStorage.clear();
       window.location.href = "/";
@@ -28,12 +30,13 @@ function myname(userdata) {
         <span>C</span>AMPUS <span>M</span>ENTOR</a></span><br> Welcome's ` +
         username +
         `<br><br><a class="fd_btn big_btn" onclick="$('#center_btn').toggle()" >Verfiy Mail</a>`;
-    }else{
+    } else {
       document.getElementById("myname").innerHTML =
-      `<span style='font-size:25px'><a href="#hero">
+        `<span style='font-size:25px'><a href="#hero">
         <span>C</span>AMPUS <span>M</span>ENTOR</a></span><br> Welcome's ` +
-      username + `<br><br><a class="fd_btn big_btn" href="/qna" >Ask A Doubt</a>`;
-      document.getElementsByClassName("con2")[0].innerHTML = ""
+        username +
+        `<br><br><a class="fd_btn big_btn" href="/qna" >Ask A Doubt</a>`;
+      document.getElementsByClassName("con2")[0].innerHTML = "";
     }
   }
 }
@@ -45,7 +48,7 @@ function mycard(cardData) {
   if (cardData) {
     var blogcards = document.getElementById("blogCards");
     blogcards.innerHTML = "";
-    cardData.data = cardData.data.reverse().slice(0,6);
+    cardData.data = cardData.data.reverse().slice(0, 6);
     for (x in cardData["data"]) {
       blogcards.innerHTML += `
       <div class="card" style="width: 18rem">
@@ -72,26 +75,25 @@ function mycard(cardData) {
   }
 }
 
-getRequest("/teachProfile/getAllProfiles/", (data) => console.log(myteachcards(data)));
+getRequest("/teachProfile/getAllProfiles/", (data) =>
+  console.log(myteachcards(data))
+);
 
-function myteachcards(data){
-  console.log("teachdata" , data)
-  if(data){
+function myteachcards(data) {
+  console.log("teachdata", data);
+  if (data) {
     var allteachcards = document.getElementById("allteachcards");
 
     allteachcards.innerHTML = "";
 
-
-    for(x in data["data"]){
-
-      rating = ["","","","",""];
+    for (x in data["data"]) {
+      rating = ["", "", "", "", ""];
 
       for (let i = 5; i > data["data"][x]["rating"]; i--) {
-        rating[i-1] = "grey";
-        
+        rating[i - 1] = "grey";
       }
 
-      console.log(data["data"])
+      console.log(data["data"]);
       allteachcards.innerHTML += `
         <div class="teach_card">
           <div class="img_section">
@@ -130,5 +132,3 @@ function myteachcards(data){
     }
   }
 }
-
-
